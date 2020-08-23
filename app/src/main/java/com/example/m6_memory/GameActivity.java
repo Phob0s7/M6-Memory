@@ -1,6 +1,8 @@
 package com.example.m6_memory;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
@@ -10,96 +12,114 @@ import java.util.Collections;
 
 public class GameActivity extends AppCompatActivity {
 
-    private ImageView hidden0, hidden1, hidden2, hidden3;
+    private ImageView card1, card2, card3, card4;
 
-    Integer[] cardsArray = {0, 1, 2, 3};
+    int animals_pig, animals_duck;
 
-    int image0, image1, image2, image3;
+    Drawable pig, duck;
+    Drawable imageWhenClick;
+    Drawable firstCard, secondCard;
 
-    int firstCard, secondCard;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
+
+    Integer[] cardsArray = {0, 1, 2, 3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        hidden0 = (ImageView) findViewById(R.id.activity_game_hidden0_imageView);
-        hidden1 = (ImageView) findViewById(R.id.activity_game_hidden1_imageView);
-        hidden2 = (ImageView) findViewById(R.id.activity_game_hidden2_imageView);
-        hidden3 = (ImageView) findViewById(R.id.activity_game_hidden3_imageView);
+        card1 = findViewById(R.id.activity_game_card1_imageView);
+        card2 = findViewById(R.id.activity_game_card2_imageView);
+        card3 = findViewById(R.id.activity_game_card3_imageView);
+        card4 = findViewById(R.id.activity_game_card4_imageView);
 
-        hidden0.setTag("0");
-        hidden1.setTag("1");
-        hidden2.setTag("2");
-        hidden3.setTag("3");
+        card1.setTag("0");
+        card2.setTag("1");
+        card3.setTag("2");
+        card4.setTag("3");
 
-        frontOfCardsResources();
+        loadingImageView();
 
         Collections.shuffle((Arrays.asList(cardsArray)));
 
-        hidden0.setOnClickListener(new View.OnClickListener() {
+        card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(hidden0, theCard);
+                int CardTag = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card1, CardTag);
             }
         });
 
-        hidden1.setOnClickListener(new View.OnClickListener() {
+        card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(hidden1, theCard);
+                int CardTag = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card2, CardTag);
             }
         });
 
-        hidden2.setOnClickListener(new View.OnClickListener() {
+        card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(hidden2, theCard);
+                int CardTag = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card3, CardTag);
             }
         });
 
-        hidden3.setOnClickListener(new View.OnClickListener() {
+        card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(hidden3, theCard);
+                int CardTag = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card4, CardTag);
             }
         });
     }
 
-    private void displayFaceUp(ImageView visible, int card) {
-        if (cardsArray[card] == 0) {
-            visible.setImageResource(image0);
-        } else if (cardsArray[card] == 1) {
-            visible.setImageResource(image1);
-        } else if (cardsArray[card] == 2) {
-            visible.setImageResource(image2);
-        } else if (cardsArray[card] == 3) {
-            visible.setImageResource(image3);
+    private void loadingImageView() {
+        animals_duck =  R.drawable.animals_duck;
+        animals_pig =  R.drawable.animals_pig;
+    }
+
+    private void displayFaceUp(ImageView card, int cardTag) {
+        if (cardsArray[cardTag] == 0 || cardsArray[cardTag] == 1 ) {
+            card.setImageResource(animals_duck);
+            duck = getDrawable(R.drawable.animals_duck);
+        }
+        else if (cardsArray[cardTag] == 2 || cardsArray[cardTag] == 3) {
+            card.setImageResource(animals_pig);
+            pig = getDrawable(R.drawable.animals_pig);
         }
 
+
         if (cardNumber == 1) {
-            firstCard = cardsArray[card];
+            if (cardsArray[cardTag] == 0 || cardsArray[cardTag] == 1) {
+                    firstCard = duck;
+            }
+            else if (cardsArray[cardTag] == 2 || cardsArray[cardTag] == 3) {
+                firstCard = getDrawable(R.drawable.animals_duck);
+            }
 
             cardNumber = 2;
-            clickedFirst = card;
+            clickedFirst = cardTag;
 
-            visible.setEnabled(false);
+            card.setEnabled(false);
         } else if (cardNumber == 2) {
-            secondCard = cardsArray[card];
+            if (cardsArray[cardTag] == 0 || cardsArray[cardTag] == 1) {
+                secondCard = getDrawable(R.drawable.animals_pig);
+            }
+            else if (cardsArray[cardTag] == 2 || cardsArray[cardTag] == 3) {
+                firstCard = getDrawable(R.drawable.animals_duck);
+            }
 
             cardNumber = 1;
-            clickedSecond = card;
+            clickedSecond = cardTag;
 
-            hidden0.setEnabled(false);
-            hidden1.setEnabled(false);
-            hidden2.setEnabled(false);
-            hidden3.setEnabled(false);
+            card1.setEnabled(false);
+            card2.setEnabled(false);
+            card3.setEnabled(false);
+            card4.setEnabled(false);
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -114,37 +134,35 @@ public class GameActivity extends AppCompatActivity {
     private void Calculate() {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
-                hidden0.setVisibility(View.INVISIBLE);
+                card1.setVisibility(View.INVISIBLE);
             } else if (clickedFirst == 1) {
-                hidden1.setVisibility((View.INVISIBLE));
+                card2.setVisibility((View.INVISIBLE));
             } else if (clickedFirst == 2) {
-                hidden2.setVisibility((View.INVISIBLE));
+                card3.setVisibility((View.INVISIBLE));
             } else if (clickedFirst == 3) {
-                hidden3.setVisibility((View.INVISIBLE));
+                card4.setVisibility((View.INVISIBLE));
             }
 
             if (clickedSecond == 0) {
-                hidden0.setVisibility(View.INVISIBLE);
+                card1.setVisibility(View.INVISIBLE);
             } else if (clickedSecond == 1) {
-                hidden1.setVisibility((View.INVISIBLE));
+                card2.setVisibility((View.INVISIBLE));
             } else if (clickedSecond == 2) {
-                hidden2.setVisibility((View.INVISIBLE));
+                card3.setVisibility((View.INVISIBLE));
             } else if (clickedSecond == 3) {
-                hidden3.setVisibility((View.INVISIBLE));
+                card4.setVisibility((View.INVISIBLE));
             }
         }
         else {
-            hidden0.setImageResource(R.drawable.hiddencard);
-            hidden1.setImageResource(R.drawable.hiddencard);
-            hidden2.setImageResource(R.drawable.hiddencard);
-            hidden3.setImageResource(R.drawable.hiddencard);
+            card1.setImageResource(R.drawable.hiddencard);
+            card2.setImageResource(R.drawable.hiddencard);
+            card3.setImageResource(R.drawable.hiddencard);
+            card4.setImageResource(R.drawable.hiddencard);
         }
-    }
 
-    private void frontOfCardsResources() {
-        image0 =  R.drawable.animals_0;
-        image1 =  R.drawable.animals_1;
-        image2 =  R.drawable.animals_2;
-        image3 =  R.drawable.animals_3;
+        card1.setEnabled(true);
+        card2.setEnabled(true);
+        card3.setEnabled(true);
+        card4.setEnabled(true);
     }
 }

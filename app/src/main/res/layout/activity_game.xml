@@ -4,10 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".GameActivity">
 
     <ImageView
-        android:id="@+id/activity_game_hidden3_imageView"
+        android:id="@+id/activity_game_card4_imageView"
         android:layout_width="78dp"
         android:layout_height="74dp"
         android:layout_marginEnd="100dp"
@@ -17,7 +18,7 @@
         app:srcCompat="@drawable/hiddencard" />
 
     <ImageView
-        android:id="@+id/activity_game_hidden0_imageView"
+        android:id="@+id/activity_game_card1_imageView"
         android:layout_width="78dp"
         android:layout_height="74dp"
         android:layout_marginStart="96dp"
@@ -27,7 +28,7 @@
         app:srcCompat="@drawable/hiddencard" />
 
     <ImageView
-        android:id="@+id/activity_game_hidden2_imageView"
+        android:id="@+id/activity_game_card3_imageView"
         android:layout_width="78dp"
         android:layout_height="74dp"
         android:layout_marginStart="96dp"
@@ -37,7 +38,7 @@
         app:srcCompat="@drawable/hiddencard" />
 
     <ImageView
-        android:id="@+id/activity_game_hidden1_imageView"
+        android:id="@+id/activity_game_card2_imageView"
         android:layout_width="78dp"
         android:layout_height="74dp"
         android:layout_marginTop="200dp"
