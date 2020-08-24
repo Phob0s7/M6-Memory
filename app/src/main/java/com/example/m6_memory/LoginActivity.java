@@ -11,31 +11,39 @@ public class LoginActivity extends AppCompatActivity {
 
     private RadioButton radioButtonFemale;
     private RadioButton radioButtonMan;
-    private Button suivant;
+    private Button suivant,retour;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        radioButtonFemale = (RadioButton) findViewById(R.id.Activity_login_femme_radioBtn);
-        radioButtonMan = (RadioButton) findViewById(R.id.Activity_login_homme_radioBtn);
-        suivant = (Button) findViewById(R.id.Activity_login_suivant_btn);
+        radioButtonFemale = findViewById(R.id.Activity_login_femme_radioBtn);
+        radioButtonMan = findViewById(R.id.Activity_login_homme_radioBtn);
+        suivant = findViewById(R.id.Activity_login_suivant_btn);
+        retour = findViewById(R.id.Activity_login_retour_btn);
 
         suivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameActivity = new Intent (LoginActivity.this, GameActivity.class);
-                startActivity(gameActivity);
+                Intent difficultyLevelActivity = new Intent (LoginActivity.this, DifficultyLevelActivity.class);
+                startActivity(difficultyLevelActivity);
+            }
+        });
+
+        retour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent mainActivity = new Intent (LoginActivity.this, MainActivity.class);
+                startActivity(mainActivity);
             }
         });
     }
 
     public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
+
         boolean checked = ((RadioButton) view).isChecked();
 
-        // Check which radio button was clicked
         switch(view.getId()) {
             case R.id.Activity_login_femme_radioBtn:
                 if (checked)

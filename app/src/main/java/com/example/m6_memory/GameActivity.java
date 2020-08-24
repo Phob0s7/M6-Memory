@@ -2,10 +2,11 @@ package com.example.m6_memory;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.graphics.drawable.Drawable;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import java.util.Arrays;
 import java.util.Collections;
@@ -14,16 +15,13 @@ public class GameActivity extends AppCompatActivity {
 
     private ImageView card1, card2, card3, card4;
 
-    int animals_pig, animals_duck;
+    Integer[] cardsArray = {101, 102, 201, 202};
 
-    Drawable pig, duck;
-    Drawable imageWhenClick;
-    Drawable firstCard, secondCard;
+    int animals101, animals201, animals102, animals202;
 
+    int firstCard, secondCard, compteur = 0;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
-
-    Integer[] cardsArray = {0, 1, 2, 3};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,81 +38,77 @@ public class GameActivity extends AppCompatActivity {
         card3.setTag("2");
         card4.setTag("3");
 
-        loadingImageView();
+        frontOfCards();
 
         Collections.shuffle((Arrays.asList(cardsArray)));
 
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int CardTag = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card1, CardTag);
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card1, theCard);
             }
         });
 
         card2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int CardTag = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card2, CardTag);
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card2, theCard);
             }
         });
 
         card3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int CardTag = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card3, CardTag);
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card3, theCard);
             }
         });
 
         card4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int CardTag = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card4, CardTag);
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card4, theCard);
             }
         });
     }
 
-    private void loadingImageView() {
-        animals_duck =  R.drawable.animals_duck;
-        animals_pig =  R.drawable.animals_pig;
+    private void frontOfCards() {
+        animals101 =  R.drawable.animals_101;
+        animals102 =  R.drawable.animals_102;
+        animals201 =  R.drawable.animals_201;
+        animals202 =  R.drawable.animals_202;
     }
 
-    private void displayFaceUp(ImageView card, int cardTag) {
-        if (cardsArray[cardTag] == 0 || cardsArray[cardTag] == 1 ) {
-            card.setImageResource(animals_duck);
-            duck = getDrawable(R.drawable.animals_duck);
+    private void displayFaceUp(ImageView visible, int card) {
+        if (cardsArray[card] == 101) {
+            visible.setImageResource(animals101);
+        } else if (cardsArray[card] == 102) {
+            visible.setImageResource(animals102);
+        } else if (cardsArray[card] == 201) {
+            visible.setImageResource(animals201);
+        } else if (cardsArray[card] == 202) {
+            visible.setImageResource(animals202);
         }
-        else if (cardsArray[cardTag] == 2 || cardsArray[cardTag] == 3) {
-            card.setImageResource(animals_pig);
-            pig = getDrawable(R.drawable.animals_pig);
-        }
-
 
         if (cardNumber == 1) {
-            if (cardsArray[cardTag] == 0 || cardsArray[cardTag] == 1) {
-                    firstCard = duck;
+            firstCard = cardsArray[card];
+            if (firstCard > 200) {
+                firstCard = firstCard - 100;
             }
-            else if (cardsArray[cardTag] == 2 || cardsArray[cardTag] == 3) {
-                firstCard = getDrawable(R.drawable.animals_duck);
-            }
-
             cardNumber = 2;
-            clickedFirst = cardTag;
+            clickedFirst = card;
 
-            card.setEnabled(false);
+            visible.setEnabled(false);
         } else if (cardNumber == 2) {
-            if (cardsArray[cardTag] == 0 || cardsArray[cardTag] == 1) {
-                secondCard = getDrawable(R.drawable.animals_pig);
+            secondCard = cardsArray[card];
+            if (secondCard > 200) {
+                secondCard = secondCard - 100;
             }
-            else if (cardsArray[cardTag] == 2 || cardsArray[cardTag] == 3) {
-                firstCard = getDrawable(R.drawable.animals_duck);
-            }
-
             cardNumber = 1;
-            clickedSecond = cardTag;
+            clickedSecond = card;
 
             card1.setEnabled(false);
             card2.setEnabled(false);
@@ -135,22 +129,30 @@ public class GameActivity extends AppCompatActivity {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
                 card1.setVisibility(View.INVISIBLE);
+                compteur++;
             } else if (clickedFirst == 1) {
                 card2.setVisibility((View.INVISIBLE));
+                compteur++;
             } else if (clickedFirst == 2) {
                 card3.setVisibility((View.INVISIBLE));
+                compteur++;
             } else if (clickedFirst == 3) {
                 card4.setVisibility((View.INVISIBLE));
+                compteur++;
             }
 
             if (clickedSecond == 0) {
                 card1.setVisibility(View.INVISIBLE);
+                compteur++;
             } else if (clickedSecond == 1) {
                 card2.setVisibility((View.INVISIBLE));
+                compteur++;
             } else if (clickedSecond == 2) {
                 card3.setVisibility((View.INVISIBLE));
+                compteur++;
             } else if (clickedSecond == 3) {
                 card4.setVisibility((View.INVISIBLE));
+                compteur++;
             }
         }
         else {
@@ -164,5 +166,15 @@ public class GameActivity extends AppCompatActivity {
         card2.setEnabled(true);
         card3.setEnabled(true);
         card4.setEnabled(true);
+
+        if (compteur == 4) {
+            run();
+            compteur = 0;
+        }
+    }
+
+    public void run() {
+        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+        startActivity(i);
     }
 }
