@@ -9,24 +9,29 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mMemory;
-    private TextView mPrototype;
-    private Button mPlayButton;
+    private Button mPlayButton, btnOptions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mMemory = (TextView) findViewById(R.id.activity_main_memory_txt);
-        mPrototype = (TextView) findViewById(R.id.activity_main_prototype_txt);
-        mPlayButton = (Button) findViewById(R.id.activity_main_play_btn);
+        mPlayButton = findViewById(R.id.activity_main_play_btn);
+        btnOptions = findViewById(R.id.activity_main_options_btn);
 
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent loginActivity = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(loginActivity);
+            }
+        });
+
+        btnOptions.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent settingsActivity = new Intent(MainActivity.this, SettingsActivity.class);
+                startActivity(settingsActivity);
             }
         });
     }

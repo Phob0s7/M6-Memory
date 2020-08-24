@@ -10,7 +10,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="108dp"
+        android:layout_marginTop="172dp"
         android:text="Quel est votre pseudonyme ?"
         android:textColor="#000000"
         android:textSize="18sp"
@@ -22,33 +22,30 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="203dp"
+        android:layout_marginBottom="16dp"
         android:text="Quel est votre sexe ?"
         android:textColor="#000000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName" />
+        app:layout_constraintBottom_toTopOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/editTextTextPersonName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="468dp"
+        android:layout_marginTop="4dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Button
         android:id="@+id/Activity_login_suivant_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="144dp"
-        android:layout_marginBottom="56dp"
+        android:layout_marginStart="208dp"
+        android:layout_marginBottom="50dp"
         android:text="Suivant"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -56,21 +53,22 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="28dp"
-        android:text="Bienvenue!"
+        android:layout_width="223dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="64dp"
+        android:text="Informations joueur"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <RadioGroup
-        android:layout_width="116dp"
-        android:layout_height="97dp"
+        android:id="@+id/radioGroup"
+        android:layout_width="98dp"
+        android:layout_height="73dp"
         android:layout_marginStart="44dp"
-        android:layout_marginBottom="184dp"
+        android:layout_marginBottom="140dp"
         app:layout_constraintBottom_toTopOf="@+id/Activity_login_suivant_btn"
         app:layout_constraintStart_toStartOf="parent">
 
@@ -78,8 +76,8 @@
             android:id="@+id/Activity_login_femme_radioBtn"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
+            android:layout_marginStart="0dp"
+            android:layout_marginTop="0dp"
             android:checked="true"
             android:onClick="onRadioButtonClicked"
             android:text="Femme" />
@@ -88,12 +86,23 @@
             android:id="@+id/Activity_login_homme_radioBtn"
             android:layout_width="96dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
+            android:layout_marginStart="0dp"
             android:layout_marginTop="9dp"
             android:layout_marginEnd="258dp"
             android:onClick="onRadioButtonClicked"
             android:text="Homme" />
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/Activity_login_retour_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginBottom="50dp"
+        android:text="Retour"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
