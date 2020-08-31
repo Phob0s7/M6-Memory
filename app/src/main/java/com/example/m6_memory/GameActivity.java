@@ -156,10 +156,10 @@ public class GameActivity extends AppCompatActivity {
             }
         }
         else {
-            card1.setImageResource(R.drawable.hiddencard);
-            card2.setImageResource(R.drawable.hiddencard);
-            card3.setImageResource(R.drawable.hiddencard);
-            card4.setImageResource(R.drawable.hiddencard);
+            card1.setImageResource(R.drawable.hiddencards);
+            card2.setImageResource(R.drawable.hiddencards);
+            card3.setImageResource(R.drawable.hiddencards);
+            card4.setImageResource(R.drawable.hiddencards);
         }
 
         card1.setEnabled(true);

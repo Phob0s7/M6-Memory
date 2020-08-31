@@ -16,4 +16,9 @@
     <string name="attachment_summary_on">Automatically download attachments for incoming emails
     </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="timer_00_00">Timer : 00:00</string>
+    <string name="card4">Card4</string>
+    <string name="card1">Card1</string>
+    <string name="card3">Card3</string>
+    <string name="card2">Card2</string>
 </resources>
