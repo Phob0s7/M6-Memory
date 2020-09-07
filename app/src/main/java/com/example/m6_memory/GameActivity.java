@@ -174,7 +174,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void run() {
-        Intent i = new Intent(GameActivity.this, EndGameActivity.class);
+        Intent i = new Intent(GameActivity.this, com.example.m6_memory.EndGameActivity.class);
         startActivity(i);
     }
 }
