@@ -15,8 +15,8 @@
         <activity android:name=".Activity.SettingsActivity" />
         <activity android:name=".Activity.DifficultyLevelActivity" />
         <activity android:name=".Activity.EndGameActivity" />
-        <activity android:name=".Activity.GameActivity.GameActivityPrototype" />
         <activity android:name=".Activity.GameActivity.GameActivityEasy" />
+        <activity android:name=".Activity.GameActivity.GameActivityPrototype" />
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.MainActivity">
 

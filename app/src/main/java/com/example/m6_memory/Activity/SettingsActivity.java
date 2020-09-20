@@ -14,7 +14,6 @@ import com.example.m6_memory.R;
 
 public class SettingsActivity extends AppCompatActivity {
 
-    private Button btnRetour;
     private Switch swChronometre;
 
     @Override
@@ -26,16 +25,7 @@ public class SettingsActivity extends AppCompatActivity {
         final CharSequence text = "En cours de développement...";
         final int duration = Toast.LENGTH_SHORT;
 
-        btnRetour = findViewById(R.id.activity_settings_retour_btn);
         swChronometre = findViewById(R.id.switch1);
-
-        btnRetour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent settingsActivity = new Intent(SettingsActivity.this, MainActivity.class);
-                startActivity(settingsActivity);
-            }
-        });
 
         swChronometre.setOnClickListener(new View.OnClickListener() {
             @Override

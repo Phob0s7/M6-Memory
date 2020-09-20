@@ -14,7 +14,7 @@ public class LoginActivity extends AppCompatActivity {
 
     private RadioButton radioButtonFemale;
     private RadioButton radioButtonMan;
-    private Button suivant, retour;
+    private Button suivant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,21 +24,12 @@ public class LoginActivity extends AppCompatActivity {
         radioButtonFemale = findViewById(R.id.Activity_login_femme_radioBtn);
         radioButtonMan = findViewById(R.id.Activity_login_homme_radioBtn);
         suivant = findViewById(R.id.Activity_login_suivant_btn);
-        retour = findViewById(R.id.Activity_login_retour_btn);
 
         suivant.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent difficultyLevelActivity = new Intent(LoginActivity.this, DifficultyLevelActivity.class);
                 startActivity(difficultyLevelActivity);
-            }
-        });
-
-        retour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent mainActivity = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(mainActivity);
             }
         });
     }

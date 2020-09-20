@@ -32,4 +32,5 @@
     <string name="retour">Retour</string>
     <string name="options">Options</string>
     <string name="chronom_tre">Chronomètre</string>
+    <string name="timer">Timer :</string>
 </resources>

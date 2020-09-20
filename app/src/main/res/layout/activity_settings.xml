@@ -19,27 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/activity_settings_retour_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/retour"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
     <Switch
         android:id="@+id/switch1"
         android:layout_width="194dp"
         android:layout_height="44dp"
         android:layout_marginStart="40dp"
-        android:layout_marginBottom="328dp"
+        android:layout_marginBottom="431dp"
         android:checked="false"
         android:clickable="true"
         android:text="@string/chronom_tre"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/activity_settings_retour_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

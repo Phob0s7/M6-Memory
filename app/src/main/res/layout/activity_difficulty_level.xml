@@ -23,53 +23,32 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginBottom="301dp"
         android:text="@string/moyen"
         android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/activity_difficulty_level_prototype_btn"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_facile_btn" />
-
-    <Button
-        android:id="@+id/activity_difficulty_level_difficile_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/difficile"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/activity_difficulty_level_prototype_btn"
-        app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_moyen_btn" />
 
     <Button
         android:id="@+id/activity_difficulty_level_facile_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="384dp"
+        android:layout_marginBottom="300dp"
         android:text="@string/facile"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/activity_difficulty_level_prototype_btn"
+        android:id="@+id/activity_difficulty_level_difficile_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
-        android:layout_marginBottom="300dp"
-        android:text="@string/prototype"
+        android:layout_marginStart="12dp"
+        android:layout_marginBottom="301dp"
+        android:text="@string/difficile"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_moyen_btn" />
 
-    <Button
-        android:id="@+id/activity_difficulty_level_retour_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="136dp"
-        android:layout_marginBottom="50dp"
-        android:text="@string/retour"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

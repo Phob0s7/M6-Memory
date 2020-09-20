@@ -9,6 +9,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.m6_memory.Activity.GameActivity.GameActivityEasy;
 import com.example.m6_memory.R;
 
 public class EndGameActivity extends AppCompatActivity {
@@ -30,8 +31,7 @@ public class EndGameActivity extends AppCompatActivity {
         btnAccueil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent GameActivityPrototype = new Intent(EndGameActivity.this, DifficultyLevelActivity.class);
-                startActivity(GameActivityPrototype);
+                finish();
             }
         });
 
