@@ -33,7 +33,8 @@ public class DifficultyLevelActivity extends AppCompatActivity {
         btnFacile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, text, duration).show();
+                Intent GameActivityEasy = new Intent(DifficultyLevelActivity.this, com.example.m6_memory.Activity.GameActivity.GameActivityEasy.class);
+                startActivity(GameActivityEasy);
             }
         });
         btnMoyen.setOnClickListener(new View.OnClickListener() {
@@ -52,8 +53,8 @@ public class DifficultyLevelActivity extends AppCompatActivity {
         btnPrototype.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameActivity = new Intent(DifficultyLevelActivity.this, GameActivity.class);
-                startActivity(gameActivity);
+                Intent GameActivityPrototype = new Intent(DifficultyLevelActivity.this, com.example.m6_memory.Activity.GameActivity.GameActivityPrototype.class);
+                startActivity(GameActivityPrototype);
             }
         });
 

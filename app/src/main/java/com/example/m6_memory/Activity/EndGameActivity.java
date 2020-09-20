@@ -30,8 +30,8 @@ public class EndGameActivity extends AppCompatActivity {
         btnAccueil.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent gameActivity = new Intent(EndGameActivity.this, DifficultyLevelActivity.class);
-                startActivity(gameActivity);
+                Intent GameActivityPrototype = new Intent(EndGameActivity.this, DifficultyLevelActivity.class);
+                startActivity(GameActivityPrototype);
             }
         });
 

@@ -5,9 +5,9 @@ public class Website {
     private String name;
     private String url;
 
-    public Website(String name, String url)  {
-        this.name= name;
-        this.url= url;
+    public Website(String name, String url) {
+        this.name = name;
+        this.url = url;
     }
 
     public String getUrl() {
@@ -27,7 +27,7 @@ public class Website {
     }
 
     @Override
-    public String toString()  {
+    public String toString() {
         return name;
     }
 }

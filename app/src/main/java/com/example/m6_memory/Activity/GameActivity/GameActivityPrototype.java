@@ -1,6 +1,4 @@
-package com.example.m6_memory.Activity;
-
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.m6_memory.Activity.GameActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,12 +6,14 @@ import android.os.Handler;
 import android.view.View;
 import android.widget.ImageView;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.m6_memory.R;
 
 import java.util.Arrays;
 import java.util.Collections;
 
-public class GameActivity extends AppCompatActivity {
+public class GameActivityPrototype extends AppCompatActivity {
 
     private ImageView card1, card2, card3, card4;
 
@@ -21,19 +21,19 @@ public class GameActivity extends AppCompatActivity {
 
     int animals101, animals201, animals102, animals202;
 
-    int firstCard, secondCard, compteur = 0;
+    int firstCard, secondCard, counter = 0;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_game_prototype);
 
-        card1 = findViewById(R.id.activity_game_card1_imageView);
-        card2 = findViewById(R.id.activity_game_card2_imageView);
-        card3 = findViewById(R.id.activity_game_card3_imageView);
-        card4 = findViewById(R.id.activity_game_card4_imageView);
+        card1 = findViewById(R.id.activity_game_prototype_card1_imageView);
+        card2 = findViewById(R.id.activity_game_prototype_card2_imageView);
+        card3 = findViewById(R.id.activity_game_prototype_card3_imageView);
+        card4 = findViewById(R.id.activity_game_prototype_card4_imageView);
 
         card1.setTag("0");
         card2.setTag("1");
@@ -131,30 +131,30 @@ public class GameActivity extends AppCompatActivity {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
                 card1.setVisibility(View.INVISIBLE);
-                compteur++;
+                counter++;
             } else if (clickedFirst == 1) {
                 card2.setVisibility((View.INVISIBLE));
-                compteur++;
+                counter++;
             } else if (clickedFirst == 2) {
                 card3.setVisibility((View.INVISIBLE));
-                compteur++;
+                counter++;
             } else if (clickedFirst == 3) {
                 card4.setVisibility((View.INVISIBLE));
-                compteur++;
+                counter++;
             }
 
             if (clickedSecond == 0) {
                 card1.setVisibility(View.INVISIBLE);
-                compteur++;
+                counter++;
             } else if (clickedSecond == 1) {
                 card2.setVisibility((View.INVISIBLE));
-                compteur++;
+                counter++;
             } else if (clickedSecond == 2) {
                 card3.setVisibility((View.INVISIBLE));
-                compteur++;
+                counter++;
             } else if (clickedSecond == 3) {
                 card4.setVisibility((View.INVISIBLE));
-                compteur++;
+                counter++;
             }
         } else {
             card1.setImageResource(R.drawable.hiddencards);
@@ -168,14 +168,14 @@ public class GameActivity extends AppCompatActivity {
         card3.setEnabled(true);
         card4.setEnabled(true);
 
-        if (compteur == 4) {
+        if (counter == 4) {
             run();
-            compteur = 0;
+            counter = 0;
         }
     }
 
     public void run() {
-        Intent i = new Intent(GameActivity.this, com.example.m6_memory.Activity.EndGameActivity.class);
+        Intent i = new Intent(GameActivityPrototype.this, com.example.m6_memory.Activity.EndGameActivity.class);
         startActivity(i);
     }
 }

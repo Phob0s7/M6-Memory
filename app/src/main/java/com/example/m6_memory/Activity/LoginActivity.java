@@ -1,11 +1,13 @@
 package com.example.m6_memory.Activity;
 
-import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.m6_memory.R;
 
 public class LoginActivity extends AppCompatActivity {

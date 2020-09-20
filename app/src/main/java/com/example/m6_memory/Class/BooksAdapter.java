@@ -38,9 +38,7 @@ public class BooksAdapter extends BaseAdapter {
             imageView.setLayoutParams(new GridView.LayoutParams(300, 300));
             imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
             imageView.setPadding(8, 8, 8, 8);
-        }
-        else
-        {
+        } else {
             imageView = (ImageView) convertView;
         }
         imageView.setImageResource(mThumbIds[position]);
@@ -53,7 +51,7 @@ public class BooksAdapter extends BaseAdapter {
             R.drawable.hiddencards,
             R.drawable.hiddencards,
             R.drawable.hiddencards,
-};
+    };
 }
 
 
