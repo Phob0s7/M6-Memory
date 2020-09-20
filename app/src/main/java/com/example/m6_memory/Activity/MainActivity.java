@@ -1,12 +1,13 @@
-package com.example.m6_memory.Activitys;
+package com.example.m6_memory.Activity;
 
-        import androidx.appcompat.app.AppCompatActivity;
-        import android.content.Intent;
-        import android.os.Bundle;
-        import android.view.View;
-        import android.widget.Button;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
-        import com.example.m6_memory.R;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.m6_memory.R;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent loginActivity = new Intent(MainActivity.this, com.example.m6_memory.LoginActivity.class);
+                Intent loginActivity = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(loginActivity);
             }
         });
@@ -31,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
         btnOptions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent settingsActivity = new Intent(MainActivity.this, com.example.m6_memory.SettingsActivity.class);
+                Intent settingsActivity = new Intent(MainActivity.this, SettingsActivity.class);
                 startActivity(settingsActivity);
             }
         });

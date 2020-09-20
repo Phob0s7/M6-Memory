@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".DifficultyLevelActivity">
+    tools:context=".Activity.DifficultyLevelActivity">
 
     <TextView
         android:id="@+id/activity_difficulty_level_titre_textView"
@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginTop="64dp"
-        android:text="Niveaux de difficulté"
+        android:text="@string/niveaux_de_difficult"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,7 +24,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="32dp"
-        android:text="Moyen"
+        android:text="@string/moyen"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/activity_difficulty_level_prototype_btn"
         app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_facile_btn" />
@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="32dp"
-        android:text="Difficile"
+        android:text="@string/difficile"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/activity_difficulty_level_prototype_btn"
         app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_moyen_btn" />
@@ -46,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="384dp"
-        android:text="Facile"
+        android:text="@string/facile"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"
         android:layout_marginBottom="300dp"
-        android:text="Prototype"
+        android:text="@string/prototype"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -68,7 +68,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="136dp"
         android:layout_marginBottom="50dp"
-        android:text="Retour"
+        android:text="@string/retour"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

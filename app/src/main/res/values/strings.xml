@@ -21,4 +21,15 @@
     <string name="card1">Card1</string>
     <string name="card3">Card3</string>
     <string name="card2">Card2</string>
+    <string name="memory">Memory</string>
+    <string name="version_prototype">Version prototype</string>
+    <string name="jouer">Jouer</string>
+    <string name="niveaux_de_difficult">Niveaux de difficulté</string>
+    <string name="moyen">Moyen</string>
+    <string name="difficile">Difficile</string>
+    <string name="facile">Facile</string>
+    <string name="prototype">Prototype</string>
+    <string name="retour">Retour</string>
+    <string name="options">Options</string>
+    <string name="chronom_tre">Chronomètre</string>
 </resources>

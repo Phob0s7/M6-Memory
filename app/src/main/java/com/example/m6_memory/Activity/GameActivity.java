@@ -1,4 +1,4 @@
-package com.example.m6_memory;
+package com.example.m6_memory.Activity;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -6,8 +6,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
+
+import com.example.m6_memory.R;
+
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -76,10 +78,10 @@ public class GameActivity extends AppCompatActivity {
     }
 
     private void frontOfCards() {
-        animals101 =  R.drawable.animals_101;
-        animals102 =  R.drawable.animals_102;
-        animals201 =  R.drawable.animals_201;
-        animals202 =  R.drawable.animals_202;
+        animals101 = R.drawable.animals_101;
+        animals102 = R.drawable.animals_102;
+        animals201 = R.drawable.animals_201;
+        animals202 = R.drawable.animals_202;
     }
 
     private void displayFaceUp(ImageView visible, int card) {
@@ -154,8 +156,7 @@ public class GameActivity extends AppCompatActivity {
                 card4.setVisibility((View.INVISIBLE));
                 compteur++;
             }
-        }
-        else {
+        } else {
             card1.setImageResource(R.drawable.hiddencards);
             card2.setImageResource(R.drawable.hiddencards);
             card3.setImageResource(R.drawable.hiddencards);
@@ -174,7 +175,7 @@ public class GameActivity extends AppCompatActivity {
     }
 
     public void run() {
-        Intent i = new Intent(GameActivity.this, com.example.m6_memory.EndGameActivity.class);
+        Intent i = new Intent(GameActivity.this, com.example.m6_memory.Activity.EndGameActivity.class);
         startActivity(i);
     }
 }

@@ -1,4 +1,4 @@
-package com.example.m6_memory;
+package com.example.m6_memory.Class;
 
 import android.content.Context;
 import android.view.View;
@@ -6,6 +6,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.ImageView;
+
+import com.example.m6_memory.R;
 
 public class BooksAdapter extends BaseAdapter {
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     package="com.example.m6_memory">
 
     <application
@@ -8,14 +9,16 @@
         android:label="Memory"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
-        <activity android:name=".Activitys.MainActivity"></activity>
-        <activity android:name=".SettingsActivity" />
-        <activity android:name=".DifficultyLevelActivity" />
-        <activity android:name=".EndGameActivity" />
-        <activity android:name=".GameActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".Activitys.GameGridActivity">
+        android:theme="@style/AppTheme"
+        tools:ignore="AllowBackup">
+        <activity android:name=".Activity.GameGridActivity" />
+        <activity android:name=".Activity.SettingsActivity" />
+        <activity android:name=".Activity.DifficultyLevelActivity" />
+        <activity android:name=".Activity.EndGameActivity" />
+        <activity android:name=".Activity.GameActivity" />
+        <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.MainActivity">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
