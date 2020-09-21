@@ -33,4 +33,10 @@
     <string name="options">Options</string>
     <string name="chronom_tre">Chronomètre</string>
     <string name="timer">Timer :</string>
+    <string name="Timer">Timer</string>
+    <string name="menu_difficulte">Menu difficulte</string>
+    <string name="_00_00">00:00</string>
+    <string name="fin_de_partie">Fin de partie</string>
+    <string name="niveau_suivant">Niveau suivant</string>
+    <string name="star">Star</string>
 </resources>

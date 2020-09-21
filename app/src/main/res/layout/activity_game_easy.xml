@@ -83,11 +83,12 @@
         app:srcCompat="@drawable/hiddencards" />
 
     <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="53dp"
-        android:layout_height="178dp"
+        android:id="@+id/activity_game_easy_timer_imageView"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
         android:layout_marginStart="116dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="72dp"
+        android:contentDescription="@string/Timer"
         android:src="@drawable/timer_image"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

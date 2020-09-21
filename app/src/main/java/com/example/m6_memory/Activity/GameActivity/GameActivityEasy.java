@@ -15,6 +15,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 public class GameActivityEasy extends AppCompatActivity {
+    Chronometer chronometer;
 
     Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
 
@@ -25,12 +26,14 @@ public class GameActivityEasy extends AppCompatActivity {
 
     private ImageView card1, card2, card3, card4, card5, card6;
 
+    public static final String EXTRA_MESSAGE = "com.timer.Memory.MESSAGE";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_easy);
 
-        Chronometer chronometer = findViewById(R.id.activity_game_easy_chronometer);
+        chronometer = findViewById(R.id.activity_game_easy_chronometer);
         chronometer.start();
 
         card1 = findViewById(R.id.activity_game_easy_card1_imageView);
@@ -225,8 +228,11 @@ public class GameActivityEasy extends AppCompatActivity {
     }
 
     public void run() {
+        chronometer.stop();
         finish();
         Intent EndGameActivity = new Intent(GameActivityEasy.this, com.example.m6_memory.Activity.EndGameActivity.class);
+        String message = chronometer.getText().toString();
+        EndGameActivity.putExtra(EXTRA_MESSAGE, message);
         startActivity(EndGameActivity);
     }
 }

@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +21,11 @@ public class EndGameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_end_game);
+
+        Intent intent = getIntent();
+        String message = intent.getStringExtra(GameActivityEasy.EXTRA_MESSAGE);
+        TextView textView = findViewById(R.id.activity_game_easy_chronometer);
+        textView.setText(message);
 
         btnAccueil = findViewById(R.id.activity_end_game_accueil_btn);
         btnNiveauSuivant = findViewById(R.id.activity_end_game_niveauSuivant_btn);
