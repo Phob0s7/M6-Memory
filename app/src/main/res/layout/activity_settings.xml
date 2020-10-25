@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     android:clickable="false"
     tools:context=".Activity.SettingsActivity">
 
@@ -11,7 +13,7 @@
         android:id="@+id/activity_settings_options_txt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="152dp"
+        android:layout_marginStart="136dp"
         android:layout_marginTop="64dp"
         android:text="@string/options"
         android:textColor="#000000"
@@ -21,14 +23,37 @@
 
     <Switch
         android:id="@+id/switch1"
-        android:layout_width="194dp"
-        android:layout_height="44dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginBottom="431dp"
+        android:layout_width="322dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="412dp"
         android:checked="false"
         android:clickable="true"
         android:text="@string/chronom_tre"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="94dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="252dp"
+        android:layout_marginBottom="332dp"
+        android:text="Effacer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="356dp"
+        android:text="Réinitialiser les scores"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

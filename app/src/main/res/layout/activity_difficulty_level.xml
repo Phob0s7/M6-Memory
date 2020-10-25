@@ -4,13 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".Activity.DifficultyLevelActivity">
 
     <TextView
         android:id="@+id/activity_difficulty_level_titre_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="72dp"
         android:layout_marginTop="64dp"
         android:text="@string/niveaux_de_difficult"
         android:textColor="#000000"
@@ -22,21 +24,21 @@
         android:id="@+id/activity_difficulty_level_moyen_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="301dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="300dp"
         android:text="@string/moyen"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_facile_btn" />
 
     <Button
         android:id="@+id/activity_difficulty_level_facile_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_width="114dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="4dp"
         android:layout_marginBottom="300dp"
         android:text="@string/facile"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -47,7 +49,7 @@
         android:layout_marginStart="12dp"
         android:layout_marginBottom="301dp"
         android:text="@string/difficile"
-        android:textSize="24sp"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toEndOf="@+id/activity_difficulty_level_moyen_btn" />
 

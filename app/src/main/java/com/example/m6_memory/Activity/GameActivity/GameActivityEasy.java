@@ -1,21 +1,25 @@
 package com.example.m6_memory.Activity.GameActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.m6_memory.Activity.EndGameActivity;
+import com.example.m6_memory.Activity.SettingsActivity;
 import com.example.m6_memory.R;
 
 import java.util.Arrays;
 import java.util.Collections;
+import android.view.WindowManager;
 
 public class GameActivityEasy extends AppCompatActivity {
-    Chronometer chronometer;
 
     Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
 
@@ -23,18 +27,48 @@ public class GameActivityEasy extends AppCompatActivity {
     int firstCard, secondCard, counter = 0;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
+    boolean chronometer;
 
-    private ImageView card1, card2, card3, card4, card5, card6;
+    private SharedPreferences settings;
+    private SharedPreferences.Editor editor;
 
-    public static final String EXTRA_MESSAGE = "com.timer.Memory.MESSAGE";
+    private ImageView card1, card2, card3, card4, card5, card6, clock, clockEnd;
+
+    private  Chronometer time;
+
+    //public static final String EXTRA_MESSAGE = "com.timer.Memory.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game_easy);
 
-        chronometer = findViewById(R.id.activity_game_easy_chronometer);
-        chronometer.start();
+        clock = findViewById(R.id.activity_game_easy_timer_imageView);
+        time = findViewById(R.id.activity_game_easy_chronometer);
+
+        settings = getSharedPreferences("save", MODE_PRIVATE);
+        editor = settings.edit();
+
+        chronometer = settings.getBoolean("value", false);
+
+
+        if (chronometer) {
+            SettingsActivity.chronometer = findViewById(R.id.activity_game_easy_chronometer);
+            SettingsActivity.chronometer.setBase(SystemClock.elapsedRealtime());
+            SettingsActivity.chronometer.start();
+            time.setVisibility(View.VISIBLE);
+            clock.setVisibility(View.VISIBLE);
+
+        }
+        else {
+            clock.setVisibility(View.INVISIBLE);
+            time.setVisibility(View.INVISIBLE);
+
+        }
+
+
 
         card1 = findViewById(R.id.activity_game_easy_card1_imageView);
         card2 = findViewById(R.id.activity_game_easy_card2_imageView);
@@ -159,7 +193,7 @@ public class GameActivityEasy extends AppCompatActivity {
                 public void run() {
                     Calculate();
                 }
-            }, 1000);
+            }, 600);
         }
     }
 
@@ -205,6 +239,7 @@ public class GameActivityEasy extends AppCompatActivity {
                 counter++;
             }
 
+
         } else {
             card1.setImageResource(R.drawable.hiddencards);
             card2.setImageResource(R.drawable.hiddencards);
@@ -221,19 +256,25 @@ public class GameActivityEasy extends AppCompatActivity {
         card5.setEnabled(true);
         card6.setEnabled(true);
 
+
         if (counter == 6) {
+            SettingsActivity.getChronometer().stop();
             run();
             counter = 0;
         }
     }
 
     public void run() {
-        chronometer.stop();
-        finish();
-        Intent EndGameActivity = new Intent(GameActivityEasy.this, com.example.m6_memory.Activity.EndGameActivity.class);
-        String message = chronometer.getText().toString();
-        EndGameActivity.putExtra(EXTRA_MESSAGE, message);
-        startActivity(EndGameActivity);
+        if (chronometer) {
+            int value = ((int) (SystemClock.elapsedRealtime() - SettingsActivity.getChronometer().getBase())) / 1000;
+            SharedPreferences sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putInt("lastTime", value);
+            editor.apply();
+        }
+            Intent intent = new Intent(GameActivityEasy.this, EndGameActivity.class);
+            startActivity(intent);
+            finish();
     }
 }
 
