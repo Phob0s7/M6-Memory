@@ -8,18 +8,42 @@
     android:backgroundTint="#FFFFFF"
     tools:context=".Activity.GameGridActivity">
 
+    <Chronometer
+        android:id="@+id/activity_game_grid_chronometer"
+        android:layout_width="113dp"
+        android:layout_height="52dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="72dp"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/activity_game_grid_clock_iV"
+        android:layout_width="64dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="72dp"
+        android:contentDescription="@string/Timer"
+        android:src="@drawable/timer_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <GridView
-        android:id="@+id/gridview"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:id="@+id/gridView"
+        android:layout_width="322dp"
+        android:layout_height="458dp"
+        android:layout_marginTop="172dp"
+        android:layout_marginEnd="20dp"
         android:columnWidth="90dp"
         android:gravity="center"
         android:horizontalSpacing="10dp"
-        android:numColumns="2"
+        android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:verticalSpacing="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+    </GridView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

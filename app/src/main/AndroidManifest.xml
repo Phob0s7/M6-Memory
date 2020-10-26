@@ -11,14 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="AllowBackup">
-        <activity android:name=".Activity.GameGridActivity" />
         <activity android:name=".Activity.SettingsActivity" />
         <activity android:name=".Activity.DifficultyLevelActivity" />
-        <activity android:name=".Activity.EndGameActivity" />
         <activity android:name=".Activity.GameActivity.GameActivityEasy" />
-        <activity android:name=".Activity.GameActivity.GameActivityPrototype" />
+        <activity android:name=".Activity.GameActivity.GameActivityMedium"/>
+        <activity android:name=".Activity.GameActivity.GameActivityHard"/>
+        <activity android:name=".Activity.EndGameActivity" />
         <activity android:name=".Activity.LoginActivity" />
+        <activity android:name=".Activity.GameGridActivity" />
         <activity android:name=".Activity.MainActivity">
+
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

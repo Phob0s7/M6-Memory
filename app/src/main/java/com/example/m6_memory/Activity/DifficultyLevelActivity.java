@@ -2,6 +2,7 @@ package com.example.m6_memory.Activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -20,8 +21,11 @@ public class DifficultyLevelActivity extends AppCompatActivity {
 
     private Button btnFacile, btnMoyen, btnDifficile;
     private EditText editTextPseudo;
-
+    private  String choiceUser, easy, medium, hard;
     public static final String EXTRA_MESSAGE = "com.timer.Memory.MESSAGE";
+
+    SharedPreferences sharedPreferencesChoiceLevelDifficulty;
+    SharedPreferences.Editor editorLevel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,33 +39,36 @@ public class DifficultyLevelActivity extends AppCompatActivity {
         btnDifficile = findViewById(R.id.activity_difficulty_level_difficile_btn);
         editTextPseudo = findViewById(R.id.editTextTextPersonName);
 
-        final Context context = getApplicationContext();
-        final CharSequence text = "En cours de développement...";
-        final int duration = Toast.LENGTH_SHORT;
+        sharedPreferencesChoiceLevelDifficulty = getSharedPreferences("levelDifficulty", MODE_PRIVATE);
+        editorLevel = sharedPreferencesChoiceLevelDifficulty.edit();
 
         btnFacile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent facile = new Intent(DifficultyLevelActivity.this, GameActivityEasy.class);
-                facile.putExtra(EXTRA_MESSAGE, facile);
-
-
-                Intent GameActivityEasy = new Intent(DifficultyLevelActivity.this, com.example.m6_memory.Activity.GameActivity.GameActivityEasy.class);
-                startActivity(GameActivityEasy);
-
+                editorLevel.putString("levelDifficulty", "easy");
+                editorLevel.apply();
+                Intent intent = new Intent(DifficultyLevelActivity.this, GameGridActivity.class);
+                startActivity(intent);
             }
         });
         btnMoyen.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, text, duration).show();
+                editorLevel.putString("levelDifficulty", "medium");
+                editorLevel.apply();
+                Intent intent = new Intent(DifficultyLevelActivity.this, GameGridActivity.class);
+                startActivity(intent);
+
             }
 
         });
         btnDifficile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(context, text, duration).show();
+                editorLevel.putString("levelDifficulty", "hard");
+                editorLevel.apply();
+                Intent intent = new Intent(DifficultyLevelActivity.this, GameGridActivity.class);
+                startActivity(intent);
             }
         });
 

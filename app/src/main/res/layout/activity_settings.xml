@@ -26,7 +26,7 @@
         android:layout_width="322dp"
         android:layout_height="43dp"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="412dp"
+        android:layout_marginBottom="324dp"
         android:checked="false"
         android:clickable="true"
         android:text="@string/chronom_tre"
@@ -34,12 +34,22 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="98dp"
+        android:layout_height="141dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="408dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/gear" />
+
     <Button
         android:id="@+id/button"
         android:layout_width="94dp"
         android:layout_height="63dp"
         android:layout_marginStart="252dp"
-        android:layout_marginBottom="332dp"
+        android:layout_marginBottom="244dp"
         android:text="Effacer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -49,7 +59,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="356dp"
+        android:layout_marginBottom="268dp"
         android:text="Réinitialiser les scores"
         android:textColor="#000000"
         android:textSize="18sp"

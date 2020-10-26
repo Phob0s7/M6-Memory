@@ -1,38 +1,25 @@
-package com.example.m6_memory.Activity;
+package com.example.m6_memory.Activity.GameActivity;
 
-import android.app.Activity;
-import android.content.Context;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.m6_memory.Activity.EndGameActivity;
+import com.example.m6_memory.Activity.SettingsActivity;
+import com.example.m6_memory.R;
+
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
-import android.widget.AdapterView;
+import android.view.WindowManager;
 import android.widget.Chronometer;
-import android.widget.GridView;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
-import com.example.m6_memory.Activity.GameActivity.GameActivityEasy;
-import com.example.m6_memory.R;
-
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
-import java.util.List;
 
-public class GameGridActivity extends Activity {
-
-    static String easyLevel, mediumLevel, hardLevel, choiceUser;
-    private static ImageView hiddenCard;
-    private SharedPreferences sharedPreferencesChoiceLevelDifficulty;
-    private ImageView card1, card2, card3, card4, card5, card6, card7, card8, card9, card10, card11, card12;
-    public static List<Integer> mThumbIds;
-    public static int nombreDeCartes;
-    private ImageView clock;
-
+public class GameActivityHard extends AppCompatActivity {
 
     Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
 
@@ -45,88 +32,50 @@ public class GameGridActivity extends Activity {
     private SharedPreferences settings;
     private SharedPreferences.Editor editor;
 
+    private ImageView card1, card2, card3, card4, card5, card6, clock, clockEnd;
+
     private Chronometer time;
+
+    //public static final String EXTRA_MESSAGE = "com.timer.Memory.MESSAGE";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game_grid);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_game_easy);
 
-        clock = findViewById(R.id.activity_game_grid_clock_iV);
-        time = findViewById(R.id.activity_game_grid_chronometer);
+        clock = findViewById(R.id.activity_game_easy_timer_imageView);
+        time = findViewById(R.id.activity_game_easy_chronometer);
 
         settings = getSharedPreferences("save", MODE_PRIVATE);
         editor = settings.edit();
 
         chronometer = settings.getBoolean("value", false);
 
-        sharedPreferencesChoiceLevelDifficulty = getSharedPreferences("levelDifficulty", 0);
-        choiceUser = sharedPreferencesChoiceLevelDifficulty.getString("levelDifficulty", "");
-
-        GridView gridView = findViewById(R.id.gridView);
-        gridView.setAdapter(new GridViewAdapter(this));
-
-
-        if (choiceUser == "easy") {
-            nombreDeCartes = 6;
-            mThumbIds = displayCards(nombreDeCartes);
-            //playGame();
-        } else if (choiceUser == "medium") {
-            nombreDeCartes = 8;
-            mThumbIds = displayCards(nombreDeCartes);
-            //playGame();
-        } else if (choiceUser == "hard") {
-            nombreDeCartes = 12;
-            mThumbIds = displayCards(nombreDeCartes);
-            //playGame();
-        }
-
-        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-
-            }
-        });
-    }
-
-    public static List<Integer> displayCards(int nombreDeCartes) {
-        List<Integer> mThumbsIds = new ArrayList<>();
-
-        for (int i = 0; i < nombreDeCartes; i++) {
-            mThumbsIds.add(R.drawable.hiddencards);
-        }
-
-        return mThumbsIds;
-    }
-
-    public void playGame() {
 
         if (chronometer) {
-            SettingsActivity.chronometer = findViewById(R.id.activity_game_grid_chronometer);
+            SettingsActivity.chronometer = findViewById(R.id.activity_game_easy_chronometer);
             SettingsActivity.chronometer.setBase(SystemClock.elapsedRealtime());
             SettingsActivity.chronometer.start();
             time.setVisibility(View.VISIBLE);
             clock.setVisibility(View.VISIBLE);
-        } else {
+
+        }
+        else {
             clock.setVisibility(View.INVISIBLE);
             time.setVisibility(View.INVISIBLE);
+
         }
 
-        hiddenCard = findViewById(R.id.activity_game_grid_card2_iV);
-        card1 = findViewById(R.id.activity_game_grid_card2_iV);
-        card2 = findViewById(R.id.activity_game_grid_card2_iV);
-        card3 = findViewById(R.id.activity_game_grid_card3_iV);
-        card4 = findViewById(R.id.activity_game_grid_card4_iV);
-        card5 = findViewById(R.id.activity_game_grid_card5_iV);
-        card6 = findViewById(R.id.activity_game_grid_card6_iV);
-        card7 = findViewById(R.id.activity_game_grid_card2_iV);
-        card8 = findViewById(R.id.activity_game_grid_card2_iV);
-        card9 = findViewById(R.id.activity_game_grid_card3_iV);
-        card10 = findViewById(R.id.activity_game_grid_card4_iV);
-        card11= findViewById(R.id.activity_game_grid_card5_iV);
-        card12 = findViewById(R.id.activity_game_grid_card6_iV);
 
 
+        card1 = findViewById(R.id.activity_game_easy_card1_imageView);
+        card2 = findViewById(R.id.activity_game_easy_card2_imageView);
+        card3 = findViewById(R.id.activity_game_easy_card3_imageView);
+        card4 = findViewById(R.id.activity_game_easy_card4_imageView);
+        card5 = findViewById(R.id.activity_game_easy_card5_imageView);
+        card6 = findViewById(R.id.activity_game_easy_card8_imageView);
 
         card1.setTag("0");
         card2.setTag("1");
@@ -186,24 +135,6 @@ public class GameGridActivity extends Activity {
                 displayFaceUp(card6, theCard);
             }
         });
-
-        if (choiceUser == "medium") {
-            card7.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int theCard = Integer.parseInt((String) v.getTag());
-                    displayFaceUp(card6, theCard);
-                }
-            });
-
-            card8.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int theCard = Integer.parseInt((String) v.getTag());
-                    displayFaceUp(card6, theCard);
-                }
-            });
-        }
     }
 
     private void frontOfCards() {
@@ -350,19 +281,7 @@ public class GameGridActivity extends Activity {
 
              */
         //Intent intent = new Intent(GameActivityEasy.this, EndGameActivity.class);
-        // startActivity(intent);
-        //finish();
-
-
+        //startActivity(intent);
+        finish();
     }
-
 }
-
-
-
-
-
-
-
-
-
