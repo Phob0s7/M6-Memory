@@ -35,12 +35,18 @@ public class MainActivity extends AppCompatActivity {
         setButtonsClick();
     }
 
+    /**
+     * Initialize the elments of the home screen
+     */
     private void initializeView() {
         setContentView(R.layout.activity_main);
         mPlayButton = findViewById(R.id.activity_main_play_btn);
         btnOptions = findViewById(R.id.activity_main_options_btn);
     }
 
+    /**
+     * Set the events of the buttons
+     */
     private void setButtonsClick() {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override

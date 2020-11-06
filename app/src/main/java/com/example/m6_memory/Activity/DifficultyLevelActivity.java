@@ -43,17 +43,26 @@ public class DifficultyLevelActivity extends AppCompatActivity {
         setButtonsOnClick();
     }
 
+    /**
+     * Initialize the buttons
+     */
     private void initializeButtons() {
         btnFacile = findViewById(R.id.activity_difficulty_level_facile_btn);
         btnMoyen = findViewById(R.id.activity_difficulty_level_moyen_btn);
         btnDifficile = findViewById(R.id.activity_difficulty_level_difficile_btn);
     }
 
+    /**
+     * Get the sharedPrefs of the level of difficulty
+     */
     private void getSharedPrefs() {
         sharedPreferencesChoiceLevelDifficulty = getSharedPreferences("levelDifficulty", MODE_PRIVATE);
         editorLevel = sharedPreferencesChoiceLevelDifficulty.edit();
     }
 
+    /**
+     * Set a event for the buttons
+     */
     private void setButtonsOnClick() {
         btnFacile.setOnClickListener(new View.OnClickListener() {
             @Override

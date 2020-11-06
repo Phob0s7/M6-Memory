@@ -91,6 +91,9 @@ public class EndGameActivity extends AppCompatActivity {
         return score;
     }
 
+    /**
+     * Get sharedprefs of the level of difficulty, the pseudo and the chronometer
+     */
     private void getSharedPrefs() {
         sharedPreferencesChoiceLevelDifficulty = getSharedPreferences("levelDifficulty", 0);
         choiceUser = sharedPreferencesChoiceLevelDifficulty.getString("levelDifficulty", null);
@@ -107,6 +110,9 @@ public class EndGameActivity extends AppCompatActivity {
         chronometer = sharedPreferencesSettings.getBoolean("value", false);
     }
 
+    /**
+     * Initialize the elements of the scoreboard
+     */
     private void initializeScoreBoard() {
         clockEnd = findViewById(R.id.activity_game_end_timer_imageView);
         star = findViewById(R.id.activity_end_game_étoile_imageView);
@@ -124,6 +130,9 @@ public class EndGameActivity extends AppCompatActivity {
         btnNiveauSuivant = findViewById(R.id.activity_end_game_niveauSuivant_btn);
     }
 
+    /**
+     * Display the elements of the score
+     */
     private void displayScore() {
         clockEnd.setVisibility(View.VISIBLE);
         tw_timeGame.setVisibility(View.VISIBLE);
@@ -131,6 +140,9 @@ public class EndGameActivity extends AppCompatActivity {
         tw_score.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * Get the sharedprefs of the time and best times
+     */
     private void getsharedPrefTime() {
         lastTime = sharedPreferencesTime.getInt("lastTime", 0);
         best1 = sharedPreferencesTime.getInt("best1", 0);
@@ -138,6 +150,9 @@ public class EndGameActivity extends AppCompatActivity {
         best3 = sharedPreferencesTime.getInt("best3", 0);
     }
 
+    /**
+     * Compare the score to sort their
+     */
     private void compareScore() {
         if (score > best3) {
             best3 = score;
@@ -175,6 +190,9 @@ public class EndGameActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Display the result of the game
+     */
     private void displayresult() {
         tw_timeGame.setText(lastTime + "");
         tw_score.setText(score + "");
@@ -184,6 +202,9 @@ public class EndGameActivity extends AppCompatActivity {
         tw_best3.setText(best3 + "");
     }
 
+    /**
+     * Delete the elements for the mode no chronometer
+     */
     private void disappearScore() {
         tw_timeGame.setVisibility(View.INVISIBLE);
         star.setVisibility(View.INVISIBLE);
@@ -191,6 +212,9 @@ public class EndGameActivity extends AppCompatActivity {
         clockEnd.setVisibility(View.INVISIBLE);
     }
 
+    /**
+     * Set the event for the button home
+     */
     private void setButtonHomeOnClick() {
         btnAccueil.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -200,6 +224,9 @@ public class EndGameActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set the events for the button next level
+     */
     private void setButtonNextLevel() {
         btnNiveauSuivant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -229,5 +256,4 @@ public class EndGameActivity extends AppCompatActivity {
             }
         });
     }
-
 }

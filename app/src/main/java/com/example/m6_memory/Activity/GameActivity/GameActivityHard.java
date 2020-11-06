@@ -127,7 +127,8 @@ public class GameActivityHard extends AppCompatActivity {
             }
             cardNumber = 1;
             clickedSecond = card;
-            displayChronometer();
+
+            disableCards();
 
 
             Handler handler = new Handler();
@@ -140,7 +141,10 @@ public class GameActivityHard extends AppCompatActivity {
         }
     }
 
-    private void diableCards() {
+    /**
+     * Disable the click on the cards
+     */
+    private void disableCards() {
         card1.setEnabled(false);
         card2.setEnabled(false);
         card3.setEnabled(false);
@@ -249,7 +253,9 @@ public class GameActivityHard extends AppCompatActivity {
             counter = 0;
         }
     }
-
+    /**
+     * Display the elements of the chronometer
+     */
     private void displayChronometer() {
         clock = findViewById(R.id.activity_game_hard_timer_imageView);
         time = findViewById(R.id.activity_game_hard_chronometer);
@@ -267,12 +273,18 @@ public class GameActivityHard extends AppCompatActivity {
         }
     }
 
+    /**
+     * Get the sharedprefs of the settings
+     */
     private void getSharedPrefs() {
         settings = getSharedPreferences("save", MODE_PRIVATE);
 
         chronometer = settings.getBoolean("value", false);
     }
 
+    /**
+     * Initialize the cards
+     */
     private void initializeCards() {
         card1 = findViewById(R.id.activity_game_hard_card1_imageView);
         card2 = findViewById(R.id.activity_game_hard_card2_imageView);
@@ -301,10 +313,16 @@ public class GameActivityHard extends AppCompatActivity {
         card12.setTag("11");
     }
 
+    /**
+     * Shuffle the cards
+     */
     private void shuffleImages() {
         Collections.shuffle((Arrays.asList(cardsArray)));
     }
 
+    /**
+     * Set the events on the cards
+     */
     private void setCardOnClick() {
 
         card1.setOnClickListener(new View.OnClickListener() {
@@ -403,6 +421,9 @@ public class GameActivityHard extends AppCompatActivity {
         });
     }
 
+    /**
+     * Set the imageview for the back cards
+     */
     private void setCardsHidden() {
         card1.setImageResource(R.drawable.hiddencards);
         card2.setImageResource(R.drawable.hiddencards);
@@ -418,6 +439,9 @@ public class GameActivityHard extends AppCompatActivity {
         card12.setImageResource(R.drawable.hiddencards);
     }
 
+    /**
+     * Enable the click on the cards
+     */
     private void enableCards() {
         card1.setEnabled(true);
         card2.setEnabled(true);

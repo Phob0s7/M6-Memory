@@ -151,6 +151,9 @@ public class GameActivityPrototype extends AppCompatActivity {
         startActivity(i);
     }
 
+    /**
+     * Initialize the cards
+     */
     private void initializeCards() {
         card1 = findViewById(R.id.activity_game_prototype_card1_imageView);
         card2 = findViewById(R.id.activity_game_prototype_card2_imageView);
@@ -163,10 +166,16 @@ public class GameActivityPrototype extends AppCompatActivity {
         card4.setTag("3");
     }
 
+    /**
+     * Shuffle the cards
+     */
     private void shufflleCards() {
         Collections.shuffle((Arrays.asList(cardsArray)));
     }
 
+    /**
+     * Set the events of the cards
+     */
     private void setButtonCardsClick() {
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -201,6 +210,9 @@ public class GameActivityPrototype extends AppCompatActivity {
         });
     }
 
+    /**
+     * Disable the click on the cards
+     */
     private void disablecards() {
         card1.setEnabled(false);
         card2.setEnabled(false);
@@ -208,6 +220,9 @@ public class GameActivityPrototype extends AppCompatActivity {
         card4.setEnabled(false);
     }
 
+    /**
+     * Enable the click on the cards
+     */
     private void enableCards() {
         card1.setEnabled(true);
         card2.setEnabled(true);

@@ -58,6 +58,9 @@ public class GameActivityEasy extends AppCompatActivity {
         setCardOnClick();
     }
 
+    /**
+     * Get the sharedprefs of the settings
+     */
     private void getSharedPrefs() {
         settings = getSharedPreferences("save", MODE_PRIVATE);
         chronometer = settings.getBoolean("value", false);
@@ -124,6 +127,9 @@ public class GameActivityEasy extends AppCompatActivity {
         }
     }
 
+    /**
+     * Disable the click on the cards
+     */
     private void disableCards() {
         card1.setEnabled(false);
         card2.setEnabled(false);
@@ -195,6 +201,9 @@ public class GameActivityEasy extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initialize the cards
+     */
     public void initializeCards() {
         card1 = findViewById(R.id.activity_game_easy_card1_imageView);
         card2 = findViewById(R.id.activity_game_easy_card2_imageView);
@@ -211,6 +220,9 @@ public class GameActivityEasy extends AppCompatActivity {
         card6.setTag("5");
     }
 
+    /**
+     * Set a event for the cards
+     */
     private void setCardOnClick() {
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -261,6 +273,9 @@ public class GameActivityEasy extends AppCompatActivity {
         });
     }
 
+    /**
+     * Display the elements of the chronometer
+     */
     private void displayChronometer() {
         clock = findViewById(R.id.activity_game_easy_timer_imageView);
         time = findViewById(R.id.activity_game_easy_chronometer);
@@ -278,10 +293,16 @@ public class GameActivityEasy extends AppCompatActivity {
         }
     }
 
+    /**
+     * Shuffles the cards
+     */
     private void shuffleImages() {
         Collections.shuffle((Arrays.asList(cardsArray)));
     }
 
+    /**
+     * enable the click on the cards
+     */
     private void enableCard() {
         card1.setEnabled(true);
         card2.setEnabled(true);

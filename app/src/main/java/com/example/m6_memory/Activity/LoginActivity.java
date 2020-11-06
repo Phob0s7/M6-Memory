@@ -57,11 +57,17 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initialize the elements of the login
+     */
     private void initializeView() {
         suivant = findViewById(R.id.Activity_login_suivant_btn);
         editTextPseudo = findViewById(R.id.Activity_login_editText);
     }
 
+    /**
+     * Set the event for the button next
+     */
     private void setButtonNextClick() {
         suivant.setOnClickListener(new View.OnClickListener() {
             @Override

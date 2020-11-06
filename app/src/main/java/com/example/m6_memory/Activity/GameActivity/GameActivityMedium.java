@@ -202,6 +202,9 @@ public class GameActivityMedium extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initialize the elements of the end of the game
+     */
     private void initializeViews() {
         setContentView(R.layout.activity_game_medium);
         clock = findViewById(R.id.activity_game_medium_timer_imageView);
@@ -226,6 +229,9 @@ public class GameActivityMedium extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Get the sharedprefs of the settings
+     */
     private void getSharedPrefs() {
         settings = getSharedPreferences("save", MODE_PRIVATE);
         editor = settings.edit();
@@ -234,6 +240,9 @@ public class GameActivityMedium extends AppCompatActivity {
 
     }
 
+    /**
+     * Display the elements of the chronometer
+     */
     private void displayChronometer() {
         if (chronometer) {
             SettingsActivity.chronometer = findViewById(R.id.activity_game_medium_chronometer);
@@ -248,6 +257,9 @@ public class GameActivityMedium extends AppCompatActivity {
         }
     }
 
+    /**
+     * Initialize the cards
+     */
     private void initializeCards() {
         card1 = findViewById(R.id.activity_game_medium_card1_imageView);
         card2 = findViewById(R.id.activity_game_medium_card2_imageView);
@@ -268,10 +280,16 @@ public class GameActivityMedium extends AppCompatActivity {
         card8.setTag("7");
     }
 
+    /**
+     * Shuffle the cards
+     */
     private void shuffleCards() {
         Collections.shuffle((Arrays.asList(cardsArray)));
     }
 
+    /**
+     * Set the events of the cards
+     */
     private void setCardsOnClick() {
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -338,6 +356,9 @@ public class GameActivityMedium extends AppCompatActivity {
         });
     }
 
+    /**
+     * Disable the click on the cards
+     */
     private void disableCards() {
         card1.setEnabled(false);
         card2.setEnabled(false);
@@ -349,6 +370,9 @@ public class GameActivityMedium extends AppCompatActivity {
         card8.setEnabled(false);
     }
 
+    /**
+     * Enable the click on the cards
+     */
     private void enableCards() {
         card1.setEnabled(true);
         card2.setEnabled(true);

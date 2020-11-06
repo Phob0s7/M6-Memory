@@ -54,6 +54,9 @@ public class SettingsActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Get the sharedPrefs of the switch, the pseudo and the time
+     */
     private void getSharedPrefs() {
         SharedPreferences settings = getSharedPreferences("save", 0);
         swChronometre.setChecked(settings.getBoolean("value", false));
@@ -68,14 +71,19 @@ public class SettingsActivity extends AppCompatActivity {
         best3 = sharedPreferencesTime.getInt("best3", 0);
     }
 
+    /**
+     * Initialize the elements of the settings
+     */
     private void initializeViews() {
         swChronometre = findViewById(R.id.activity_settings_chronomètre_swt);
         bResetScores = findViewById(R.id.activity_settings_effacer_btn);
 
     }
 
+    /**
+     * Set the events of the buttons
+     */
     private void setButtonsOnClick() {
-
         swChronometre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,6 +101,7 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
 
+        // Reset the score board
         bResetScores.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -118,5 +127,4 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
-
 }
