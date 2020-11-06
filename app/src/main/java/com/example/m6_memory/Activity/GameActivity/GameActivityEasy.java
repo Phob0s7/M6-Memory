@@ -50,89 +50,17 @@ public class GameActivityEasy extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game_easy);
 
-        clock = findViewById(R.id.activity_game_easy_timer_imageView);
-        time = findViewById(R.id.activity_game_easy_chronometer);
+        getSharedPrefs();
+        displayChronometer();
+        initializeCards();
+        frontOfCards();
+        shuffleImages();
+        setCardOnClick();
+    }
 
+    private void getSharedPrefs() {
         settings = getSharedPreferences("save", MODE_PRIVATE);
         chronometer = settings.getBoolean("value", false);
-
-        if (chronometer) {
-            SettingsActivity.chronometer = findViewById(R.id.activity_game_easy_chronometer);
-            SettingsActivity.chronometer.setBase(SystemClock.elapsedRealtime());
-            SettingsActivity.chronometer.start();
-            time.setVisibility(View.VISIBLE);
-            clock.setVisibility(View.VISIBLE);
-
-        } else {
-            clock.setVisibility(View.INVISIBLE);
-            time.setVisibility(View.INVISIBLE);
-        }
-
-        card1 = findViewById(R.id.activity_game_easy_card1_imageView);
-        card2 = findViewById(R.id.activity_game_easy_card2_imageView);
-        card3 = findViewById(R.id.activity_game_easy_card3_imageView);
-        card4 = findViewById(R.id.activity_game_easy_card4_imageView);
-        card5 = findViewById(R.id.activity_game_easy_card5_imageView);
-        card6 = findViewById(R.id.activity_game_easy_card6_imageView);
-
-        card1.setTag("0");
-        card2.setTag("1");
-        card3.setTag("2");
-        card4.setTag("3");
-        card5.setTag("4");
-        card6.setTag("5");
-
-        frontOfCards();
-
-        Collections.shuffle((Arrays.asList(cardsArray)));
-
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card1, theCard);
-            }
-        });
-
-        card2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card2, theCard);
-            }
-        });
-
-        card3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card3, theCard);
-            }
-        });
-
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card4, theCard);
-            }
-        });
-
-        card5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card5, theCard);
-            }
-        });
-
-        card6.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card6, theCard);
-            }
-        });
     }
 
     /**
@@ -184,12 +112,7 @@ public class GameActivityEasy extends AppCompatActivity {
             cardNumber = 1;
             clickedSecond = card;
 
-            card1.setEnabled(false);
-            card2.setEnabled(false);
-            card3.setEnabled(false);
-            card4.setEnabled(false);
-            card5.setEnabled(false);
-            card6.setEnabled(false);
+            disableCards();
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -199,6 +122,15 @@ public class GameActivityEasy extends AppCompatActivity {
                 }
             }, 600);
         }
+    }
+
+    private void disableCards() {
+        card1.setEnabled(false);
+        card2.setEnabled(false);
+        card3.setEnabled(false);
+        card4.setEnabled(false);
+        card5.setEnabled(false);
+        card6.setEnabled(false);
     }
 
     /**
@@ -246,7 +178,6 @@ public class GameActivityEasy extends AppCompatActivity {
                 counter++;
             }
 
-
         } else {
             card1.setImageResource(R.drawable.hiddencards);
             card2.setImageResource(R.drawable.hiddencards);
@@ -256,19 +187,111 @@ public class GameActivityEasy extends AppCompatActivity {
             card6.setImageResource(R.drawable.hiddencards);
         }
 
-        card1.setEnabled(true);
-        card2.setEnabled(true);
-        card3.setEnabled(true);
-        card4.setEnabled(true);
-        card5.setEnabled(true);
-        card6.setEnabled(true);
-
+        enableCard();
 
         if (counter == 6) {
             startNextActivity();
             counter = 0;
         }
     }
+
+    public void initializeCards() {
+        card1 = findViewById(R.id.activity_game_easy_card1_imageView);
+        card2 = findViewById(R.id.activity_game_easy_card2_imageView);
+        card3 = findViewById(R.id.activity_game_easy_card3_imageView);
+        card4 = findViewById(R.id.activity_game_easy_card4_imageView);
+        card5 = findViewById(R.id.activity_game_easy_card5_imageView);
+        card6 = findViewById(R.id.activity_game_easy_card6_imageView);
+
+        card1.setTag("0");
+        card2.setTag("1");
+        card3.setTag("2");
+        card4.setTag("3");
+        card5.setTag("4");
+        card6.setTag("5");
+    }
+
+    private void setCardOnClick() {
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card1, theCard);
+            }
+        });
+
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card2, theCard);
+            }
+        });
+
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card3, theCard);
+            }
+        });
+
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card4, theCard);
+            }
+        });
+
+        card5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card5, theCard);
+            }
+        });
+
+        card6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card6, theCard);
+            }
+        });
+    }
+
+    private void displayChronometer() {
+        clock = findViewById(R.id.activity_game_easy_timer_imageView);
+        time = findViewById(R.id.activity_game_easy_chronometer);
+
+        if (chronometer) {
+            SettingsActivity.chronometer = findViewById(R.id.activity_game_easy_chronometer);
+            SettingsActivity.chronometer.setBase(SystemClock.elapsedRealtime());
+            SettingsActivity.chronometer.start();
+            time.setVisibility(View.VISIBLE);
+            clock.setVisibility(View.VISIBLE);
+
+        } else {
+            clock.setVisibility(View.INVISIBLE);
+            time.setVisibility(View.INVISIBLE);
+        }
+    }
+
+    private void shuffleImages() {
+        Collections.shuffle((Arrays.asList(cardsArray)));
+    }
+
+    private void enableCard() {
+        card1.setEnabled(true);
+        card2.setEnabled(true);
+        card3.setEnabled(true);
+        card4.setEnabled(true);
+        card5.setEnabled(true);
+        card6.setEnabled(true);
+    }
+
+
     /**
      * Start the next activity.
      */

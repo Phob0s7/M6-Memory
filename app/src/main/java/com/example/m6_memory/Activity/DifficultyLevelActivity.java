@@ -11,7 +11,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
-import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,13 +38,23 @@ public class DifficultyLevelActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        initializeButtons();
+        getSharedPrefs();
+        setButtonsOnClick();
+    }
+
+    private void initializeButtons() {
         btnFacile = findViewById(R.id.activity_difficulty_level_facile_btn);
         btnMoyen = findViewById(R.id.activity_difficulty_level_moyen_btn);
         btnDifficile = findViewById(R.id.activity_difficulty_level_difficile_btn);
+    }
 
+    private void getSharedPrefs() {
         sharedPreferencesChoiceLevelDifficulty = getSharedPreferences("levelDifficulty", MODE_PRIVATE);
         editorLevel = sharedPreferencesChoiceLevelDifficulty.edit();
+    }
 
+    private void setButtonsOnClick() {
         btnFacile.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

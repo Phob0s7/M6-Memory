@@ -31,11 +31,17 @@ public class MainActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setContentView(R.layout.activity_main);
+        initializeView();
+        setButtonsClick();
+    }
 
+    private void initializeView() {
+        setContentView(R.layout.activity_main);
         mPlayButton = findViewById(R.id.activity_main_play_btn);
         btnOptions = findViewById(R.id.activity_main_options_btn);
+    }
 
+    private void setButtonsClick() {
         mPlayButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

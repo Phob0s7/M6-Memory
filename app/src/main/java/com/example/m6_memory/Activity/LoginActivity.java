@@ -36,17 +36,10 @@ public class LoginActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
-
-        suivant = findViewById(R.id.Activity_login_suivant_btn);
-        editTextPseudo = findViewById(R.id.Activity_login_editText);
-
-        suivant.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                getPseudo();
-            }
-        });
+        initializeView();
+        setButtonNextClick();
     }
+
     /**
      * Save the pseudo in sharedpref.
      */
@@ -62,5 +55,19 @@ public class LoginActivity extends AppCompatActivity {
             Intent intent1 = new Intent(LoginActivity.this, DifficultyLevelActivity.class);
             startActivity(intent1);
         }
+    }
+
+    private void initializeView() {
+        suivant = findViewById(R.id.Activity_login_suivant_btn);
+        editTextPseudo = findViewById(R.id.Activity_login_editText);
+    }
+
+    private void setButtonNextClick() {
+        suivant.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getPseudo();
+            }
+        });
     }
 }

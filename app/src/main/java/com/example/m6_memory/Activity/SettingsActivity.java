@@ -28,9 +28,11 @@ public class SettingsActivity extends AppCompatActivity {
     public static Chronometer chronometer;
     public int lastTime, best1, best2, best3;
     public String pseudo;
+    public AlertDialog.Builder builder;
     SharedPreferences sharedPreferencesTime;
     SharedPreferences sharedPreferencesPseudo;
     private Button bResetScores;
+
     public static Chronometer getChronometer() {
         return chronometer;
     }
@@ -45,7 +47,16 @@ public class SettingsActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_settings);
 
-        final AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder = new AlertDialog.Builder(this);
+        initializeViews();
+        getSharedPrefs();
+        setButtonsOnClick();
+
+    }
+
+    private void getSharedPrefs() {
+        SharedPreferences settings = getSharedPreferences("save", 0);
+        swChronometre.setChecked(settings.getBoolean("value", false));
 
         sharedPreferencesPseudo = getSharedPreferences("pseudo", MODE_PRIVATE);
         pseudo = sharedPreferencesPseudo.getString("valuePseudo", "");
@@ -55,12 +66,15 @@ public class SettingsActivity extends AppCompatActivity {
         best1 = sharedPreferencesTime.getInt("best1", 0);
         best2 = sharedPreferencesTime.getInt("best2", 0);
         best3 = sharedPreferencesTime.getInt("best3", 0);
+    }
 
+    private void initializeViews() {
         swChronometre = findViewById(R.id.activity_settings_chronomètre_swt);
         bResetScores = findViewById(R.id.activity_settings_effacer_btn);
 
-        SharedPreferences settings = getSharedPreferences("save", 0);
-        swChronometre.setChecked(settings.getBoolean("value", false));
+    }
+
+    private void setButtonsOnClick() {
 
         swChronometre.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -104,4 +118,5 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
     }
+
 }

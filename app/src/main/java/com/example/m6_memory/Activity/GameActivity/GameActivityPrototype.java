@@ -38,51 +38,10 @@ public class GameActivityPrototype extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_prototype);
 
-        card1 = findViewById(R.id.activity_game_prototype_card1_imageView);
-        card2 = findViewById(R.id.activity_game_prototype_card2_imageView);
-        card3 = findViewById(R.id.activity_game_prototype_card3_imageView);
-        card4 = findViewById(R.id.activity_game_prototype_card4_imageView);
-
-        card1.setTag("0");
-        card2.setTag("1");
-        card3.setTag("2");
-        card4.setTag("3");
-
+        initializeCards();
         frontOfCards();
-
-        Collections.shuffle((Arrays.asList(cardsArray)));
-
-        card1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card1, theCard);
-            }
-        });
-
-        card2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card2, theCard);
-            }
-        });
-
-        card3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card3, theCard);
-            }
-        });
-
-        card4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int theCard = Integer.parseInt((String) v.getTag());
-                displayFaceUp(card4, theCard);
-            }
-        });
+        shufflleCards();
+        setButtonCardsClick();
     }
 
     /**
@@ -125,11 +84,7 @@ public class GameActivityPrototype extends AppCompatActivity {
             }
             cardNumber = 1;
             clickedSecond = card;
-
-            card1.setEnabled(false);
-            card2.setEnabled(false);
-            card3.setEnabled(false);
-            card4.setEnabled(false);
+            disablecards();
 
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -180,10 +135,7 @@ public class GameActivityPrototype extends AppCompatActivity {
             card4.setImageResource(R.drawable.hiddencards);
         }
 
-        card1.setEnabled(true);
-        card2.setEnabled(true);
-        card3.setEnabled(true);
-        card4.setEnabled(true);
+        enableCards();
 
         if (counter == 4) {
             startNextActivity();
@@ -197,5 +149,69 @@ public class GameActivityPrototype extends AppCompatActivity {
     public void startNextActivity() {
         Intent i = new Intent(GameActivityPrototype.this, com.example.m6_memory.Activity.EndGameActivity.class);
         startActivity(i);
+    }
+
+    private void initializeCards() {
+        card1 = findViewById(R.id.activity_game_prototype_card1_imageView);
+        card2 = findViewById(R.id.activity_game_prototype_card2_imageView);
+        card3 = findViewById(R.id.activity_game_prototype_card3_imageView);
+        card4 = findViewById(R.id.activity_game_prototype_card4_imageView);
+
+        card1.setTag("0");
+        card2.setTag("1");
+        card3.setTag("2");
+        card4.setTag("3");
+    }
+
+    private void shufflleCards() {
+        Collections.shuffle((Arrays.asList(cardsArray)));
+    }
+
+    private void setButtonCardsClick() {
+        card1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card1, theCard);
+            }
+        });
+
+        card2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card2, theCard);
+            }
+        });
+
+        card3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card3, theCard);
+            }
+        });
+
+        card4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int theCard = Integer.parseInt((String) v.getTag());
+                displayFaceUp(card4, theCard);
+            }
+        });
+    }
+
+    private void disablecards() {
+        card1.setEnabled(false);
+        card2.setEnabled(false);
+        card3.setEnabled(false);
+        card4.setEnabled(false);
+    }
+
+    private void enableCards() {
+        card1.setEnabled(true);
+        card2.setEnabled(true);
+        card3.setEnabled(true);
+        card4.setEnabled(true);
     }
 }
