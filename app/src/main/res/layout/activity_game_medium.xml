@@ -4,54 +4,22 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Activity.GameActivity.GameActivityMedium">
 
     <ImageView
-        android:id="@+id/activity_game_easy_card6_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="252dp"
-        android:contentDescription="@string/card4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hiddencards" />
-
-    <ImageView
-        android:id="@+id/activity_game_easy_card7_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="244dp"
-        android:layout_marginBottom="132dp"
-        android:contentDescription="@string/card4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hiddencards" />
-
-    <ImageView
-        android:id="@+id/activity_game_easy_card8_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="132dp"
-        android:contentDescription="@string/card4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hiddencards" />
-
-    <ImageView
-        android:id="@+id/activity_game_easy_card3_imageView"
+        android:id="@+id/activity_game_medium_card3_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="68dp"
         android:layout_marginEnd="16dp"
         android:contentDescription="@string/card3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_game_easy_chronometer2"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_medium_chronometer"
         app:srcCompat="@drawable/hiddencards" />
 
     <ImageView
-        android:id="@+id/activity_game_easy_card1_imageView"
+        android:id="@+id/activity_game_medium_card1_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="16dp"
@@ -62,18 +30,68 @@
         app:srcCompat="@drawable/hiddencards" />
 
     <ImageView
-        android:id="@+id/activity_game_easy_card5_imageView"
+        android:id="@+id/activity_game_medium_card5_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_medium_card8_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/activity_game_medium_card6_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_medium_card2_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_medium_card7_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="148dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_medium_card6_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="268dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_medium_card3_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_medium_card4_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginBottom="20dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_medium_card7_imageView"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_medium_card1_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_medium_card8_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginEnd="128dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginBottom="148dp"
         android:contentDescription="@string/card4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/hiddencards" />
 
     <Chronometer
-        android:id="@+id/activity_game_easy_chronometer2"
+        android:id="@+id/activity_game_medium_chronometer"
         android:layout_width="103dp"
         android:layout_height="40dp"
         android:layout_marginStart="172dp"
@@ -83,7 +101,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/activity_game_easy_timer_imageView2"
+        android:id="@+id/activity_game_medium_timer_imageView"
         android:layout_width="48dp"
         android:layout_height="40dp"
         android:layout_marginStart="108dp"
@@ -94,7 +112,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/activity_game_easy_card2_imageView"
+        android:id="@+id/activity_game_medium_card2_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="180dp"
@@ -104,14 +122,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/hiddencards" />
 
-    <ImageView
-        android:id="@+id/activity_game_easy_card4_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="244dp"
-        android:layout_marginBottom="252dp"
-        android:contentDescription="@string/card4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hiddencards" />
 </androidx.constraintlayout.widget.ConstraintLayout>

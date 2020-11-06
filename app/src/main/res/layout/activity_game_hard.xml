@@ -4,6 +4,163 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".Activity.GameActivity.GameActivityHard">
+
+    <ImageView
+        android:id="@+id/activity_game_hard_timer_imageView"
+        android:layout_width="48dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="72dp"
+        android:contentDescription="@string/Timer"
+        android:src="@drawable/timer_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Chronometer
+        android:id="@+id/activity_game_hard_chronometer"
+        android:layout_width="103dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="172dp"
+        android:layout_marginTop="72dp"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card3_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/card3"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_hard_card6_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card4_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/card1"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_hard_card7_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/activity_game_hard_card5_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card2_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_hard_card5_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/activity_game_hard_card3_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card12_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card7_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="252dp"
+        android:layout_marginBottom="148dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card1_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="24dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_hard_card4_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/activity_game_hard_card2_imageView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card9_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="148dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card10_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="252dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card11_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="32dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card8_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="132dp"
+        android:layout_marginBottom="148dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card6_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_hard_card9_imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_hard_card5_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/card2"
+        app:layout_constraintBottom_toTopOf="@+id/activity_game_hard_card8_imageView"
+        app:layout_constraintEnd_toStartOf="@+id/activity_game_hard_card6_imageView"
+        app:srcCompat="@drawable/hiddencards" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

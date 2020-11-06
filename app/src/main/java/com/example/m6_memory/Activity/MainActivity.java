@@ -1,21 +1,30 @@
+/*
+   Class  : MainActivity
+   Author : Sylvain Villoz TINFPT2
+   Date   : Novembre 2020
+ */
 package com.example.m6_memory.Activity;
-
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.view.WindowManager;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m6_memory.R;
-import android.view.WindowManager;
 
+/**
+ * Class that represents the home screen.
+ */
 public class MainActivity extends AppCompatActivity {
 
     private Button mPlayButton, btnOptions;
 
+    /**
+     * Initialize the activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +32,6 @@ public class MainActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         setContentView(R.layout.activity_main);
-
 
         mPlayButton = findViewById(R.id.activity_main_play_btn);
         btnOptions = findViewById(R.id.activity_main_options_btn);

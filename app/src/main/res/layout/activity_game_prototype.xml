@@ -34,7 +34,8 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="72dp"
-        android:layout_marginBottom="200dp"
+        android:layout_marginBottom="256dp"
+        android:background="#FFFFFF"
         android:contentDescription="@string/card3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,7 +54,7 @@
         app:srcCompat="@drawable/hiddencards" />
 
     <TextView
-        android:id="@+id/fff"
+        android:id="@+id/activity_game_prototype_timer_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="108dp"

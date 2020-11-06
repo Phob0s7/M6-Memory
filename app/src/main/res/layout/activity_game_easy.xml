@@ -29,14 +29,42 @@
         app:srcCompat="@drawable/hiddencards" />
 
     <ImageView
-        android:id="@+id/activity_game_easy_card5_imageView"
+        android:id="@+id/activity_game_easy_card4_imageView"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:layout_marginEnd="128dp"
-        android:layout_marginBottom="252dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="244dp"
+        android:layout_marginBottom="268dp"
         android:contentDescription="@string/card4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_easy_card1_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_easy_card5_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="128dp"
+        android:layout_marginBottom="268dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_easy_card2_imageView"
+        app:srcCompat="@drawable/hiddencards" />
+
+    <ImageView
+        android:id="@+id/activity_game_easy_card6_imageView"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="19dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="268dp"
+        android:contentDescription="@string/card4"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_easy_card3_imageView"
         app:srcCompat="@drawable/hiddencards" />
 
     <ImageView
@@ -48,28 +76,6 @@
         android:contentDescription="@string/card3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activity_game_easy_chronometer"
-        app:srcCompat="@drawable/hiddencards" />
-
-    <ImageView
-        android:id="@+id/activity_game_easy_card4_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="240dp"
-        android:layout_marginBottom="252dp"
-        android:contentDescription="@string/card4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/hiddencards" />
-
-    <ImageView
-        android:id="@+id/activity_game_easy_card8_imageView"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="252dp"
-        android:contentDescription="@string/card4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/hiddencards" />
 
     <ImageView

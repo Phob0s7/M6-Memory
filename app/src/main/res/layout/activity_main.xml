@@ -32,21 +32,23 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/activity_main_titre_imageView"
         android:layout_width="174dp"
         android:layout_height="221dp"
         android:layout_marginEnd="92dp"
         android:layout_marginBottom="136dp"
+        android:contentDescription="@string/image_titre"
         app:layout_constraintBottom_toTopOf="@+id/activity_main_play_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/title_image" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/activity_main_Memory_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="87dp"
         android:layout_marginEnd="59dp"
+        android:contentDescription="@string/image_memory"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/title" />

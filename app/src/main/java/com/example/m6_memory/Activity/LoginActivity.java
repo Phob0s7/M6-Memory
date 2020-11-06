@@ -1,27 +1,35 @@
+/*
+   Class  : LoginActivity
+   Author : Sylvain Villoz TINFPT2
+   Date   : Novembre 2020
+ */
 package com.example.m6_memory.Activity;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.InputType;
+import android.text.TextUtils;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RadioButton;
-import android.view.WindowManager;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m6_memory.R;
 
+/**
+ * Class that represents the login.
+ */
 public class LoginActivity extends AppCompatActivity {
 
-    private RadioButton radioButtonFemale;
-    private RadioButton radioButtonMan;
     private Button suivant;
     private EditText editTextPseudo;
 
-    public static final String EXTRA_MESSAGE = "MESSAGE";
-
+    /**
+     * Initialize the activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,10 +37,8 @@ public class LoginActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_login);
 
-        //radioButtonFemale = findViewById(R.id.Activity_login_femme_radioBtn);
-       // radioButtonMan = findViewById(R.id.Activity_login_homme_radioBtn);
         suivant = findViewById(R.id.Activity_login_suivant_btn);
-        editTextPseudo = findViewById(R.id.editTextTextPersonName);
+        editTextPseudo = findViewById(R.id.Activity_login_editText);
 
         suivant.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -41,33 +47,20 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*
-    public void onRadioButtonClicked(View view) {
-
-        boolean checked = ((RadioButton) view).isChecked();
-
-        switch (view.getId()) {
-            case R.id.Activity_login_femme_radioBtn:
-                if (checked)
-                    break;
-            case R.id.Activity_login_homme_radioBtn:
-                if (checked)
-                    break;
-        }
-    }
-    */
-
-
+    /**
+     * Save the pseudo in sharedpref.
+     */
     public void getPseudo() {
         String value = editTextPseudo.getText().toString().trim();
-        SharedPreferences sharedPref = getSharedPreferences("pseudo", MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-
-        editor.putString("pseudo1", value);
-        editor.apply();
-        Intent intent1 = new Intent(LoginActivity.this, DifficultyLevelActivity.class);
-        Intent intent = new Intent(LoginActivity.this, EndGameActivity.class);
-        startActivity(intent1);
+        if (TextUtils.isEmpty(value)) {
+            Toast.makeText(getApplicationContext(), "Veuillez entrer un pseudonyme !", Toast.LENGTH_SHORT).show();
+        } else {
+            SharedPreferences sharedPref = getSharedPreferences("pseudo", MODE_PRIVATE);
+            SharedPreferences.Editor editor = sharedPref.edit();
+            editor.putString("pseudo1", value);
+            editor.apply();
+            Intent intent1 = new Intent(LoginActivity.this, DifficultyLevelActivity.class);
+            startActivity(intent1);
+        }
     }
 }

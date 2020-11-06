@@ -1,3 +1,8 @@
+/*
+   Class  : GameActivityPrototype
+   Author : Sylvain Villoz TINFPT2
+   Date   : Novembre 2020
+ */
 package com.example.m6_memory.Activity.GameActivity;
 
 import android.content.Intent;
@@ -13,18 +18,21 @@ import com.example.m6_memory.R;
 import java.util.Arrays;
 import java.util.Collections;
 
+/**
+ * Class that represents a game in prototype difficulty.
+ */
 public class GameActivityPrototype extends AppCompatActivity {
 
-    private ImageView card1, card2, card3, card4;
-
     Integer[] cardsArray = {101, 102, 201, 202};
-
     int animals101, animals201, animals102, animals202;
-
     int firstCard, secondCard, counter = 0;
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
+    private ImageView card1, card2, card3, card4;
 
+    /**
+     * Initialize the activity.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -77,6 +85,9 @@ public class GameActivityPrototype extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initialize the front of the cards.
+     */
     private void frontOfCards() {
         animals101 = R.drawable.animals_101;
         animals102 = R.drawable.animals_102;
@@ -84,6 +95,9 @@ public class GameActivityPrototype extends AppCompatActivity {
         animals202 = R.drawable.animals_202;
     }
 
+    /**
+     * Display the front of the cards.
+     */
     private void displayFaceUp(ImageView visible, int card) {
         if (cardsArray[card] == 101) {
             visible.setImageResource(animals101);
@@ -127,6 +141,9 @@ public class GameActivityPrototype extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check if the cards are same.
+     */
     private void Calculate() {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
@@ -169,12 +186,15 @@ public class GameActivityPrototype extends AppCompatActivity {
         card4.setEnabled(true);
 
         if (counter == 4) {
-            run();
+            startNextActivity();
             counter = 0;
         }
     }
 
-    public void run() {
+    /**
+     * Start the next activity.
+     */
+    public void startNextActivity() {
         Intent i = new Intent(GameActivityPrototype.this, com.example.m6_memory.Activity.EndGameActivity.class);
         startActivity(i);
     }

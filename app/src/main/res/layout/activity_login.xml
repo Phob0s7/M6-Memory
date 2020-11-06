@@ -22,19 +22,19 @@
 -->
 
     <TextView
-        android:id="@+id/textView3"
+        android:id="@+id/Activity_login_quel_pseudo_TextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="152dp"
-        android:text="Quel est votre pseudonyme ?"
+        android:text="@string/quel_est_votre_pseudonyme"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/Activity_login_editText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="72dp"
@@ -42,37 +42,39 @@
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView3" />
+        app:layout_constraintTop_toBottomOf="@+id/Activity_login_quel_pseudo_TextView"
+        android:autofillHints="" />
 
     <Button
         android:id="@+id/Activity_login_suivant_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="116dp"
-        android:layout_marginBottom="48dp"
-        android:text="Suivant"
+        android:layout_marginBottom="44dp"
+        android:text="@string/suivant"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/Activity_login_bienvenue_txt"
         android:layout_width="161dp"
         android:layout_height="37dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="72dp"
-        android:text="Bienvenue !"
+        android:text="@string/bienvenue"
         android:textColor="#000000"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/Activity_login_utilisateur_imageView"
         android:layout_width="209dp"
         android:layout_height="186dp"
         android:layout_marginEnd="75dp"
         android:layout_marginBottom="97dp"
+        android:contentDescription="@string/utilisateur"
         app:layout_constraintBottom_toTopOf="@+id/Activity_login_suivant_btn"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/profile" />

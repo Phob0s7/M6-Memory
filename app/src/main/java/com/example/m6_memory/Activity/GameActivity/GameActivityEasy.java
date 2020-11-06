@@ -1,3 +1,8 @@
+/*
+   Class  : GameActivityEasy
+   Author : Sylvain Villoz TINFPT2
+   Date   : Novembre 2020
+ */
 package com.example.m6_memory.Activity.GameActivity;
 
 import android.content.Intent;
@@ -6,10 +11,10 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.SystemClock;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Chronometer;
 import android.widget.ImageView;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.m6_memory.Activity.EndGameActivity;
@@ -18,8 +23,10 @@ import com.example.m6_memory.R;
 
 import java.util.Arrays;
 import java.util.Collections;
-import android.view.WindowManager;
 
+/**
+ * Class that represents a game in easy difficulty.
+ */
 public class GameActivityEasy extends AppCompatActivity {
 
     Integer[] cardsArray = {101, 102, 103, 201, 202, 203};
@@ -29,55 +36,45 @@ public class GameActivityEasy extends AppCompatActivity {
     int clickedFirst, clickedSecond;
     int cardNumber = 1;
     boolean chronometer;
-
     private SharedPreferences settings;
-    private SharedPreferences.Editor editor;
-
     private ImageView card1, card2, card3, card4, card5, card6, clock;
+    private Chronometer time;
 
-    private  Chronometer time;
-
+    /**
+     * Initialize the activity.
+     */
     @Override
-    protected void onCreate( Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_game_easy);
 
-        //ImageView imageView = getV
-
-        clock = findViewById(R.id.activity_game_grid_clock_iV);
-        time = findViewById(R.id.activity_game_grid_chronometer);
+        clock = findViewById(R.id.activity_game_easy_timer_imageView);
+        time = findViewById(R.id.activity_game_easy_chronometer);
 
         settings = getSharedPreferences("save", MODE_PRIVATE);
-        editor = settings.edit();
-
         chronometer = settings.getBoolean("value", false);
 
-
         if (chronometer) {
-            SettingsActivity.chronometer = findViewById(R.id.activity_game_grid_chronometer);
+            SettingsActivity.chronometer = findViewById(R.id.activity_game_easy_chronometer);
             SettingsActivity.chronometer.setBase(SystemClock.elapsedRealtime());
             SettingsActivity.chronometer.start();
             time.setVisibility(View.VISIBLE);
             clock.setVisibility(View.VISIBLE);
 
-        }
-        else {
+        } else {
             clock.setVisibility(View.INVISIBLE);
             time.setVisibility(View.INVISIBLE);
-
         }
 
+        card1 = findViewById(R.id.activity_game_easy_card1_imageView);
+        card2 = findViewById(R.id.activity_game_easy_card2_imageView);
+        card3 = findViewById(R.id.activity_game_easy_card3_imageView);
+        card4 = findViewById(R.id.activity_game_easy_card4_imageView);
+        card5 = findViewById(R.id.activity_game_easy_card5_imageView);
+        card6 = findViewById(R.id.activity_game_easy_card6_imageView);
 
-/*
-        card1 = findViewById(R.id.activity_game_grid_card1_iV);
-        card2 = findViewById(R.id.activity_game_grid_card2_iV);
-        card3 = findViewById(R.id.activity_game_grid_card3_iV);
-        card4 = findViewById(R.id.activity_game_grid_card4_iV);
-        card5 = findViewById(R.id.activity_game_grid_card5_iV);
-        card6 = findViewById(R.id.activity_game_grid_card6_iV);
-*/
         card1.setTag("0");
         card2.setTag("1");
         card3.setTag("2");
@@ -138,6 +135,9 @@ public class GameActivityEasy extends AppCompatActivity {
         });
     }
 
+    /**
+     * Initialize the front of the cards.
+     */
     private void frontOfCards() {
         animals101 = R.drawable.animals_101;
         animals102 = R.drawable.animals_102;
@@ -147,6 +147,9 @@ public class GameActivityEasy extends AppCompatActivity {
         animals203 = R.drawable.animals_203;
     }
 
+    /**
+     * Display the front of the cards.
+     */
     private void displayFaceUp(ImageView visible, int card) {
         if (cardsArray[card] == 101) {
             visible.setImageResource(animals101);
@@ -198,6 +201,9 @@ public class GameActivityEasy extends AppCompatActivity {
         }
     }
 
+    /**
+     * Check if the cards are same.
+     */
     private void Calculate() {
         if (firstCard == secondCard) {
             if (clickedFirst == 0) {
@@ -259,12 +265,14 @@ public class GameActivityEasy extends AppCompatActivity {
 
 
         if (counter == 6) {
-            run();
+            startNextActivity();
             counter = 0;
         }
     }
-
-    public void run() {
+    /**
+     * Start the next activity.
+     */
+    public void startNextActivity() {
         if (chronometer) {
             SettingsActivity.getChronometer().stop();
             int value = ((int) (SystemClock.elapsedRealtime() - SettingsActivity.getChronometer().getBase())) / 1000;
@@ -274,18 +282,9 @@ public class GameActivityEasy extends AppCompatActivity {
             editor.apply();
         }
 
-            /*
-        } else {
-           //Intent intent = new Intent(GameActivityEasy.this, EndGameWithoutChronoActivity.class);
-            //startActivity(intent);
-        }
-
-             */
-            Intent intent = new Intent(GameActivityEasy.this, EndGameActivity.class);
-            startActivity(intent);
-            finish();
+        Intent intent = new Intent(GameActivityEasy.this, EndGameActivity.class);
+        startActivity(intent);
+        finish();
     }
-
-
 }
 

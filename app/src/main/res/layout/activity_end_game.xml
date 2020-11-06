@@ -4,75 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/rectanglevide"
+    android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF">
-
-    <ImageView
-        android:id="@+id/activity_game_end_timer_imageView"
-        android:layout_width="48dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="96dp"
-        android:layout_marginTop="124dp"
-        android:contentDescription="@string/Timer"
-        android:src="@drawable/timer_image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <Chronometer
         android:id="@+id/activity_game_easy_chronometer"
         android:layout_width="103dp"
         android:layout_height="40dp"
-        android:layout_marginStart="164dp"
+        android:layout_marginStart="168dp"
         android:layout_marginTop="124dp"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/activity_end_game_étoile_imageView"
-        android:layout_width="41dp"
-        android:layout_height="51dp"
+        android:id="@+id/activity_game_end_timer_imageView"
+        android:layout_width="45dp"
+        android:layout_height="49dp"
         android:layout_marginStart="100dp"
-        android:layout_marginBottom="324dp"
-        android:contentDescription="@string/star"
-        android:src="@drawable/star_image"
-        app:layout_constraintBottom_toTopOf="@+id/activity_end_game_accueil_btn"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="124dp"
+        android:layout_marginEnd="19dp"
+        android:contentDescription="@string/Timer"
+        android:src="@drawable/timer_image"
+        app:layout_constraintEnd_toStartOf="@+id/activity_game_easy_chronometer"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/activity_end_game_scores_txt"
         android:layout_width="79dp"
         android:layout_height="42dp"
-        android:layout_marginStart="172dp"
-        android:layout_marginBottom="332dp"
+        android:layout_marginStart="21dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="112dp"
+        android:layout_marginBottom="46dp"
         android:text="@string/_00_00"
         android:textColor="#000000"
         android:textSize="30sp"
-        app:layout_constraintBottom_toTopOf="@+id/activity_end_game_accueil_btn"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toTopOf="@+id/activity_end_game_meilleures_scores_txt"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/activity_end_game_étoile_imageView"
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_easy_chronometer" />
 
-    <Button
-        android:id="@+id/activity_end_game_accueil_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="52dp"
-        android:text="@string/menu_difficulte"
-        android:textSize="18sp"
-        android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <ImageView
+        android:id="@+id/activity_end_game_étoile_imageView"
+        android:layout_width="45dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="33dp"
+        android:contentDescription="@string/star"
+        android:src="@drawable/star_image"
+        app:layout_constraintBottom_toTopOf="@+id/activity_end_game_meilleures_scores_txt"
+        app:layout_constraintEnd_toStartOf="@+id/activity_end_game_scores_txt"
+        app:layout_constraintHorizontal_bias="0.285"
         app:layout_constraintStart_toStartOf="parent"
-        tools:visibility="visible" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_game_end_timer_imageView" />
 
     <TextView
-        android:id="@+id/activity_end_game_titre_btn"
+        android:id="@+id/activity_end_game_titre_imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="120dp"
-        android:layout_marginTop="64dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="52dp"
         android:text="@string/fin_de_partie"
         android:textColor="#000000"
-        android:textSize="24sp"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -81,160 +80,144 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4dp"
-        android:layout_marginBottom="52dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/niveau_suivant"
         android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
-    <TextView
-        android:id="@+id/textView_Scores"
+    <Button
+        android:id="@+id/activity_end_game_menu_difficulté_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="40dp"
+        android:text="@string/menu_difficulte"
+        android:textSize="18sp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible" />
+
+    <TextView
+        android:id="@+id/activity_end_game_meilleures_scores_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginTop="25dp"
         android:layout_marginEnd="84dp"
-        android:layout_marginBottom="20dp"
-        android:text="Meilleures scores"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="324dp"
-        android:text="Rang"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="324dp"
-        android:text="Nom"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="43dp"
-        android:text="Score"
+        android:text="@string/meilleures_scores"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Scores" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_étoile_imageView" />
 
     <TextView
-        android:id="@+id/textView9"
-        android:layout_width="66dp"
-        android:layout_height="33dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="19dp"
-        android:text="2ème"
+        android:id="@+id/activity_end_game_rang_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="380dp"
+        android:text="@string/rang"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/activity_end_game_2ème_txt"
+        android:layout_width="91dp"
+        android:layout_height="34dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/_2_me"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_1er_txt" />
+
+    <TextView
+        android:id="@+id/activity_end_game_3ème_txt"
         android:layout_width="64dp"
         android:layout_height="34dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="14dp"
-        android:text="3ème"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="16dp"
+        android:text="@string/_3_me"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_2ème_txt" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/activity_end_game_1er_txt"
         android:layout_width="54dp"
         android:layout_height="36dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="15dp"
-        android:text="1er"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
-
-    <TextView
-        android:id="@+id/textView7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="76dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Scores" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="124dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Scores" />
-
-    <TextView
-        android:id="@+id/textView10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="168dp"
-        android:textColor="#000000"
-        android:textSize="24sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_Scores" />
-
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="65dp"
-        android:layout_height="32dp"
+        android:layout_marginStart="84dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="44dp"
+        android:text="@string/_1er"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_rang_txt" />
+
+    <TextView
+        android:id="@+id/activity_end_game_score_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="76dp"
+        android:text="@string/score"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView20" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_meilleures_scores_txt" />
 
     <TextView
-        android:id="@+id/textView20"
+        android:id="@+id/activity_end_game_scores3_txt"
         android:layout_width="65dp"
         android:layout_height="32dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="44dp"
+        android:layout_marginEnd="72dp"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_scores2_txt" />
 
     <TextView
-        android:id="@+id/textView15"
+        android:id="@+id/activity_end_game_scores1_txt"
         android:layout_width="65dp"
         android:layout_height="32dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
+        android:layout_marginEnd="72dp"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_score_txt" />
+
+    <TextView
+        android:id="@+id/activity_end_game_scores2_txt"
+        android:layout_width="65dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="72dp"
+        android:textColor="#000000"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_scores1_txt" />
+
+    <TextView
+        android:id="@+id/activity_end_game_nom1_txt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="140dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="139dp"
+        android:text="@string/pseudo"
+        android:textColor="#FF0000"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_end_game_meilleures_scores_txt" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

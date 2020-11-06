@@ -1,48 +1,68 @@
 <resources>
-    <string name="app_name">M6-Memory</string>
-    <string name="title_activity_settings">SettingsActivity</string>
+    <string name="app_name" translatable="false">M6-Memory</string>
+    <string name="title_activity_settings" translatable="false">SettingsActivity</string>
 
     <!-- Preference Titles -->
-    <string name="messages_header">Messages</string>
-    <string name="sync_header">Sync</string>
+    <string name="messages_header" translatable="false">Messages</string>
+    <string name="sync_header" translatable="false">Sync</string>
 
     <!-- Messages Preferences -->
-    <string name="signature_title">Your signature</string>
-    <string name="reply_title">Default reply action</string>
+    <string name="signature_title" translatable="false">Your signature</string>
+    <string name="reply_title" translatable="false">Default reply action</string>
 
     <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    <string name="sync_title" translatable="false">Sync email periodically</string>
+    <string name="attachment_title" translatable="false">Download incoming attachments</string>
+    <string name="attachment_summary_on" translatable="false">Automatically download attachments for incoming emails
     </string>
-    <string name="attachment_summary_off">Only download attachments when manually requested</string>
-    <string name="timer_00_00">Timer : 00:00</string>
-    <string name="card4">Card4</string>
-    <string name="card1">Card1</string>
-    <string name="card3">Card3</string>
-    <string name="card2">Card2</string>
-    <string name="memory">Memory</string>
-    <string name="version_prototype">Version prototype</string>
+    <string name="attachment_summary_off" translatable="false">Only download attachments when manually requested</string>
+    <string name="timer_00_00" translatable="false">Timer : 00:00</string>
+    <string name="card4" translatable="false">Card4</string>
+    <string name="card1" translatable="false">Card1</string>
+    <string name="card3" translatable="false">Card3</string>
+    <string name="card2" translatable="false">Card2</string>
+    <string name="memory" translatable="false">Memory</string>
+    <string name="version_prototype" translatable="false">Version prototype</string>
     <string name="jouer">Jouer</string>
     <string name="niveaux_de_difficult">Niveaux de difficulté</string>
     <string name="moyen">Moyen</string>
     <string name="difficile">Difficile</string>
     <string name="facile">Facile</string>
-    <string name="prototype">Prototype</string>
+    <string name="prototype" translatable="false">Prototype</string>
     <string name="retour">Retour</string>
-    <string name="options">Options</string>
+    <string name="options" translatable="false">Options</string>
     <string name="chronom_tre">Chronomètre</string>
     <string name="timer">Timer :</string>
     <string name="Timer">Timer</string>
     <string name="menu_difficulte">Menu difficulte</string>
-    <string name="_00_00">00:00</string>
+    <string name="_00_00" translatable="false">00:00</string>
     <string name="fin_de_partie">Fin de partie</string>
     <string name="niveau_suivant">Niveau suivant</string>
-    <string name="star">Star</string>
-    <string name="title_activity_game_medium">GameActivityMedium</string>
+    <string name="star" translatable="false">Star</string>
+    <string name="title_activity_game_medium" translatable="false">GameActivityMedium</string>
     <!--
     This string is used for square devices and overridden by hello_world in
     values-round/strings.xml for round devices.
     -->
-    <string name="hello_world">Hello Square World!</string>
+    <string name="star1" translatable="false">star1</string>
+    <string name="star2" translatable="false">star2</string>
+    <string name="star3" translatable="false">star3</string>
+    <string name="meilleures_scores">Meilleures scores</string>
+    <string name="_1er">1er</string>
+    <string name="nom">Nom</string>
+    <string name="_3_me">3ème</string>
+    <string name="score" translatable="false">Score</string>
+    <string name="_2_me">2ème</string>
+    <string name="rang">Rang</string>
+    <string name="quel_est_votre_pseudonyme">Quel est votre pseudonyme ?</string>
+    <string name="suivant">Suivant</string>
+    <string name="bienvenue">Bienvenue !</string>
+    <string name="utilisateur" translatable="false">utilisateur</string>
+    <string name="image_titre" translatable="false">image_titre</string>
+    <string name="image_memory" translatable="false">image_Memory</string>
+    <string name="effacer">Effacer</string>
+    <string name="r_initialiser_les_scores">Réinitialiser les scores</string>
+    <string name="engrenage" translatable="false">engrenage</string>
+    <string name="emplacement_cartes" translatable="false">emplacement_cartes</string>
+    <string name="pseudo" translatable="false">Pseudo</string>
 </resources>
